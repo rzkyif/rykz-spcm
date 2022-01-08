@@ -3,7 +3,7 @@
 ## Description
 An MCM equivalent for Skyrim Platform plugins.
 
-This is the source code. For releases, visit the [mod page on Skyrim Special Edition Nexus](#).
+This is the source code. For releases, visit the [mod page on Skyrim Special Edition Nexus](https://www.nexusmods.com/skyrimspecialedition/mods/61556).
 
 ## Build Requirements
 - [Yarn 3](https://yarnpkg.com/)
