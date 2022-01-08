@@ -1,0 +1,18 @@
+# VS Code
+.vscode
+
+# Yarn
+.yarn
+node_modules
+
+# Build output
+/dist
+
+# Copied Skyrim Platform modules
+modules
+
+# Generated TSConfig
+tsconfig.json
+
+# Local build configuration
+/scripts/config.js

@@ -1,0 +1,105 @@
+{
+  "title": "Example Settings",
+  "categories": {
+    "category_a": {
+      "title": "A",
+      "settings": {
+        "setting_0_action": {
+          "name": "Action Setting",
+          "desc": "This setting can be pressed to trigger an action.",
+          "type": "action:Action!,Example_Action"
+        },
+        "setting_1_boolean": {
+          "name": "Boolean Setting",
+          "desc": "This setting can only be true or false.",
+          "type": "boolean",
+          "default": true
+        },
+        "setting_2_decimal": {
+          "name": "Decimal Setting",
+          "desc": "This setting can only be decimals.",
+          "type": "decimal",
+          "default": 3.2
+        },
+        "setting_3_decimal_range": {
+          "name": "Decimal Range Setting",
+          "desc": "This setting can only be a decimal in a valid range.",
+          "type": "decimalrange:0.1,9.9,0.1",
+          "default": 5.2
+        },
+        "setting_4_formid": {
+          "name": "FormID Setting",
+          "desc": "This setting can only be a valid FormID.",
+          "type": "formid",
+          "default": 622440
+        },
+        "setting_5_formtype": {
+          "name": "FormType Setting",
+          "desc": "This setting can only be a valid FormType",
+          "type": "formtype",
+          "default": 42
+        },
+        "setting_6_integer": {
+          "name": "Integer Setting",
+          "desc": "This setting can only be an integer (whole number).",
+          "type": "integer",
+          "default": 225
+        }
+      }
+    },
+    "category_b": {
+      "title": "B",
+      "settings": {
+        "setting_7_integer_range": {
+          "name": "Integer Range Setting",
+          "desc": "This setting can only be an integer in a valid range.",
+          "type": "integerrange:0,100,10",
+          "default": 10
+        },
+        "setting_8_key": {
+          "name": "Key Setting",
+          "desc": "This setting can only be a keybind.",
+          "type": "key",
+          "default": 27
+        },
+        "setting_9_list": {
+          "name": "List of String Setting",
+          "desc": "This setting can only be a list of strings.",
+          "type": "list:string",
+          "default": [
+            "can",
+            "cat",
+            "car"
+          ]
+        },
+        "setting_10_map": {
+          "name": "Map of String to Integer Setting",
+          "desc": "This setting can only be a map of string to integers.",
+          "type": "map:string,integer",
+          "default": [
+            ["Apple", 24],
+            ["Banana", 54]
+          ]
+        },
+        "setting_11_number": {
+          "name": "Number Setting",
+          "desc": "This setting can only be a valid number.",
+          "type": "number",
+          "default": 42.32
+        },
+        "setting_12_string": {
+          "name": "String Setting",
+          "desc": "This setting can only be a valid string.",
+          "type": "string",
+          "default": "42"
+        },
+        "setting_13_values": {
+          "name": "Values Setting",
+          "desc": "This setting can only be a valid value.",
+          "type": "values:Apple,Banana,Pear of Destruction",
+          "default": "Apple"
+        }
+      }
+    }
+  }
+}

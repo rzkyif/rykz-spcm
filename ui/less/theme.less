@@ -1,0 +1,106 @@
+@c-base: rgb(105, 105, 105);
+@c-accent-1: rgb(80, 173, 80);
+@c-accent-2: rgb(173, 216, 230);
+@c-accent-3: rgb(173, 80, 80);
+@c-accent-4: rgb(240, 219, 99);
+@c-accent-5: rgb(255, 160, 122);
+@c-accent-6: rgb(108, 255, 248);
+@c-accent-7: rgb(221, 160, 221);
+@c-accent-8: rgb(211, 211, 211);
+@c-background: black;
+@c-text: rgb(235, 235, 235);
+@c-safe: rgb(123, 255, 0);
+@c-warning: rgb(255, 196, 0);
+@c-danger: rgb(255, 51, 0);
+@v-alpha: 0.6;
+
+@colors: .colors();
+.colors() {
+  c-background: rgba(
+    red(@c-background),
+    green(@c-background),
+    blue(@c-background),
+    @v-alpha
+  );
+  c-base: rgba(red(@c-base), green(@c-base), blue(@c-base), @v-alpha);
+  c-base-d: darken($c-base, 5%);
+  c-base-dd: darken($c-base, 10%);
+  c-base-ddd: darken($c-base, 15%);
+  c-base-l: lighten($c-base, 5%);
+  c-base-ll: lighten($c-base, 10%);
+  c-base-lll: lighten($c-base, 15%);
+  c-accent-1: rgba(
+    red(@c-accent-1),
+    green(@c-accent-1),
+    blue(@c-accent-1),
+    @v-alpha
+  );
+  c-accent-2: rgba(
+    red(@c-accent-2),
+    green(@c-accent-2),
+    blue(@c-accent-2),
+    @v-alpha
+  );
+  c-accent-3: rgba(
+    red(@c-accent-3),
+    green(@c-accent-3),
+    blue(@c-accent-3),
+    @v-alpha
+  );
+  c-accent-4: rgba(
+    red(@c-accent-4),
+    green(@c-accent-4),
+    blue(@c-accent-4),
+    @v-alpha
+  );
+  c-accent-5: rgba(
+    red(@c-accent-5),
+    green(@c-accent-5),
+    blue(@c-accent-5),
+    @v-alpha
+  );
+  c-accent-6: rgba(
+    red(@c-accent-6),
+    green(@c-accent-6),
+    blue(@c-accent-6),
+    @v-alpha
+  );
+  c-accent-7: rgba(
+    red(@c-accent-7),
+    green(@c-accent-7),
+    blue(@c-accent-7),
+    @v-alpha
+  );
+  c-accent-8: rgba(
+    red(@c-accent-8),
+    green(@c-accent-8),
+    blue(@c-accent-8),
+    @v-alpha
+  );
+  c-text: @c-text;
+  c-safe: @c-safe;
+  c-warning: @c-warning;
+  c-danger: @c-danger;
+  c-text-alt: #fff - $c-text;
+  c-text-muted: darken($c-text, 20%);
+}
+
+@sizes: .sizes();
+.sizes() {
+  v-smaller: 0.6rem;
+  v-small: 0.8rem;
+  v-medium: 1rem;
+  v-large: 1.2rem;
+  v-larger: 1.4rem;
+}
+
+@distances: .distances();
+.distances() {
+  v-base: 0.25rem;
+  v-base-s: ($v-base / 2);
+  v-base-ss: ($v-base / 4);
+  v-base-sss: ($v-base / 8);
+  v-base-l: ($v-base * 2);
+  v-base-ll: ($v-base * 4);
+  v-base-lll: ($v-base * 8);
+}

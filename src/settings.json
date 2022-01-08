@@ -1,0 +1,7 @@
+{
+  "__WARNING__": "It is recommended to change this settings file through rykz's Skyrim Platform Configuration Menu (SPCM)",
+  "key_menu": 199,
+  "key_reset": 207,
+  "load_non_spcm": true,
+  "create_backups": true
+}

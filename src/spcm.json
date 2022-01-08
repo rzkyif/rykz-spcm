@@ -1,0 +1,39 @@
+{
+  "title": "SPCM",
+  "categories": {
+    "category_hotkeys": {
+      "title": "Hotkeys",
+      "settings": {
+        "key_menu": {
+          "name": "Menu Key",
+          "desc": "Key to open the menu.",
+          "type": "key",
+          "default": 199
+        },
+        "key_reset": {
+          "name": "Reset Key",
+          "desc": "Key to reset the plugin.",
+          "type": "key",
+          "default": 207
+        }
+      }
+    },
+    "category_others": {
+      "title": "Miscellaneous",
+      "settings": {
+        "load_non_spcm": {
+          "name": "Load Non-SPCM",
+          "desc": "Load settings files that doesn't have the '_spcm_title' key in them.",
+          "type": "boolean",
+          "default": true
+        },
+        "create_backups": {
+          "name": "Create Backups",
+          "desc": "Create backups of settings files that you modify in \"Data/Platform/SPCM/Backups\" if no backups exist. This only saves the original settings.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  }
+}

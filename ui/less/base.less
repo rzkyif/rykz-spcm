@@ -1,0 +1,38 @@
+
+
+html {
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.8vh;
+
+  * {
+    color: @colors[c-text];
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  height: 100%;
+  z-index: -3;
+
+  *:focus {
+    outline: none;
+  }
+}
+
+::selection {
+  background: @colors[c-text-alt];
+  color: @colors[c-text];
+}
+
+[filtered="true"],
+[hidden] {
+  display: none !important;
+}

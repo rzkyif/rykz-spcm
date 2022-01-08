@@ -1,0 +1,542 @@
+@import './less/theme.less';
+@import './less/base.less';
+
+// overlays
+.m-overlay {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: @colors[c-base-ddd];
+  font-size: @sizes[v-larger];
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+// containers
+.m-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+
+  & > span {
+    user-select: none;
+    min-height: @sizes[v-medium];
+    line-height: @sizes[v-medium];
+    font-size: @sizes[v-small];
+    padding-left: @distances[v-base-s];
+  }
+
+  .m-list {
+    margin-top: @distances[v-base-ss];
+  }
+}
+
+// lists
+.m-list {
+  flex: 1;
+  border: 1px solid @colors[c-text];
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  &::-webkit-scrollbar {
+    width: @sizes[v-smaller];
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: @colors[c-base];
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: @colors[c-base-ll];
+    &:hover {
+      background: @colors[c-base-lll];
+    }
+    &:active {
+      background: @colors[c-text];
+    }
+  }
+}
+
+// separator between plugins and settings
+.m-separator {
+  height: 100%;
+  width: @distances[v-base];
+}
+
+// context menu
+#m-context-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  padding: 0.3rem;
+
+  & > button {
+    background: @colors[c-base-ddd];
+    border: none;
+    padding: 0.3rem;
+    white-space: nowrap;
+
+    &:hover {
+      background: @colors[c-base-dd];
+    }
+
+    &:active {
+      background: @colors[c-base-d];
+    }
+  }
+}
+
+// autocomplete
+.m-autocomplete-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border: 1px solid @colors[c-text];
+  z-index: 100;
+
+  & > button {
+    flex: 1;
+    background: @colors[c-base-ddd];
+    border: none;
+    white-space: nowrap;
+    font-size: @sizes[v-medium];
+    z-index: 100;
+
+    &:hover {
+      background: @colors[c-base-dd];
+    }
+
+    &:active {
+      background: @colors[c-base-d];
+    }
+  }
+}
+
+// actual menu
+#m-background {
+  position: relative;
+  background: @colors[c-background];
+  padding: @distances[v-base-l] @distances[v-base-ll];
+  min-width: 70%;
+  max-width: 70%;
+  min-height: 90%;
+  max-height: 90%;
+  display: flex;
+
+  // when display is portrait (e.g. in testing)
+  @media (max-aspect-ratio: 1/1) {
+    flex-direction: column;
+
+    .m-separator {
+      width: 100% !important;
+      height: @distances[v-base] !important;
+    }
+    
+    #m-plugins-container {
+      min-height: 300px !important;
+      max-height: 300px !important;
+    }
+
+    #m-settings-container {
+      min-height: 575px !important;
+      max-height: 575px !important;
+    }
+  }
+
+  // border lines
+  &::before {
+    content: "";
+    position: absolute;
+    top: @distances[v-base];
+    right: @distances[v-base];
+    bottom: @distances[v-base];
+    left: @distances[v-base];
+    border: 1px solid @colors[c-text];
+  }
+
+  // plugins container
+  #m-plugins-container {
+
+    // action buttons
+    & > div[actions] {
+      display: flex;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      border: none;
+
+      // toggle spcm only button
+      & > button {
+        font-size: @sizes[v-smaller];
+        border: none;
+        margin-left: @distances[v-base-s];
+        
+      // toggle spcm only button
+        &[spcm-only] {
+          background: darken(@colors[c-text-muted], 15%);
+          color: @colors[c-text];
+
+          &:not([disabled]):hover {
+            background: darken(@colors[c-text-muted], 10%);
+          }
+
+          &:active {
+            background: darken(@colors[c-text-muted], 5%);
+          }
+        }
+      }
+    }
+
+    // plugins
+    #m-plugins {
+      overflow-y: scroll;
+  
+      // plugin
+      & > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0px -2px;
+  
+        // plugin name button
+        & > button {
+          flex: 1;
+          user-select: none;
+          padding: @distances[v-base-s] @distances[v-base] 0px @distances[v-base];
+          font-size: @sizes[v-medium];
+          background: none;
+          border: none;
+          text-align: left;
+          border-left: 0px solid transparent;
+          transition: border-left 0.1s;
+    
+          &:not([selected]):hover {
+            border-left: @distances[v-base] solid @colors[c-base-lll];
+            background: @colors[c-base-l];
+          }
+    
+          &[selected] {
+            border-left: @distances[v-base] solid @colors[c-text];
+            background: @colors[c-base-ll];
+            color: @colors[c-text]
+          }
+
+          &[raw] {
+            color: @colors[c-text-muted];
+
+            &:not([selected]):hover {
+              border-left: @distances[v-base] solid @colors[c-text-muted];
+            }
+
+            &[selected] {
+              border-left: @distances[v-base] solid @colors[c-text-muted];
+            }
+          }
+        }
+  
+        // plugin categories
+        & > div {
+          display: none;
+          flex-direction: column;
+          overflow: hidden;
+  
+          // plugin category button
+          & > button {
+            flex: 1;
+            user-select: none;
+            padding: @distances[v-base-s] @distances[v-base] 0px @distances[v-base];
+            font-size: @sizes[v-small];
+            background: none;
+            border: none;
+            text-align: left;
+            border-left: @distances[v-base] solid @colors[c-text];
+            transition: border-left 0.1s;
+      
+            &:not([selected]):hover {
+              border-left: @distances[v-base-l] solid @colors[c-text];
+              background: @colors[c-base-l];
+            }
+      
+            &[selected] {
+              border-left: @distances[v-base-l] solid @colors[c-text];
+              background: @colors[c-base-ll];
+            }
+
+            &[raw] {
+              color: @colors[c-text-muted];
+  
+              &:not([selected]):hover {
+                border-left: @distances[v-base] solid @colors[c-text-muted];
+              }
+  
+              &[selected] {
+                border-left: @distances[v-base] solid @colors[c-text-muted];
+              }
+            }
+          }
+        }
+        
+        // show plugin categories if selected
+        &[selected] {
+          & > div {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  // settings container
+  #m-settings-container {
+    flex: 3;
+
+    // action buttons
+    & > div[actions] {
+      display: flex;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      border: none;
+
+      // save / revert button
+      & > button {
+        font-size: @sizes[v-smaller];
+        border: none;
+        margin-left: @distances[v-base-s];
+        
+        // save button
+        &[save] {
+          background: @colors[c-accent-1];
+  
+          &:not([disabled]):hover {
+            background: lighten(@colors[c-accent-1], 5%);
+          }
+    
+          &:active {
+            background: lighten(@colors[c-accent-1], 10%);
+          }
+        }
+
+        // revert button
+        &[revert] {
+          background: @colors[c-accent-3];
+  
+          &:not([disabled]):hover {
+            background: lighten(@colors[c-accent-3], 5%);
+          }
+    
+          &:active {
+            background: lighten(@colors[c-accent-3], 10%);
+          }
+        }
+      }
+    }
+    
+    // settings
+    #m-settings {
+      position: relative;
+      padding: @distances[v-base] 0px @distances[v-base] @distances[v-base];
+      overflow-y: scroll;
+  
+      // setting
+      .m-setting {
+        display: flex;
+  
+        // setting label
+        & > div[left] > label, & > div[top] > label {
+          display: flex;
+          align-items: center;
+          flex: 1;
+          font-size: @sizes[v-small];
+          user-select: none;
+          font-family: 'Courier New', Courier, monospace;
+          &[friendly] {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+          }
+        }
+  
+        // setting description
+        & > div[left] > span, & > div[top] > span {
+          font-size: @sizes[v-small];
+          user-select: none;
+        }
+  
+        // setting layout: left and right
+        &[type=single], &[type=action] {
+          div[left] {
+            padding: @distances[v-base] @distances[v-base];
+            display: flex;
+            flex-direction: column;
+            flex: 2;
+          }
+          div[right] {
+            position: relative;
+            padding: @distances[v-base] @distances[v-base];
+            display: flex;
+            flex: 1;
+            > * {
+              flex: 1;
+            }
+            border-left: 1px solid @colors[c-base-ll];
+          }
+        }
+
+        // setting layout: top and bottom
+        &[type=list], &[type=map] {
+          flex-direction: column;
+          div[top] {
+            padding: @distances[v-base] @distances[v-base];
+            display: flex;
+            flex-direction: column;
+          }
+          div[bottom] {
+            .m-list();
+            position: relative;
+            background-color: @colors[c-base-d];
+            margin: 0px @distances[v-base] @distances[v-base] @distances[v-base];
+            display: flex;
+            flex: 1;
+            > * {
+              flex: 1;
+            }
+  
+            // map entries
+            div[entry] {
+              display: flex;
+              > * {
+                flex: 1;
+              }
+            }
+        
+            // list entries
+            input {
+              border: none;
+            }
+  
+            // + button
+            button {
+              background: @colors[c-base-l];
+              border: none;
+              font-size: @sizes[v-small];
+      
+              &:not([disabled]):hover {
+                background: @colors[c-base-ll];
+              }
+      
+              &:active {
+                background: @colors[c-base-lll];
+              }
+            }
+          }
+        }
+
+        // input styles
+        & > div, & > div > div {
+          // normal inputs
+          & > input {
+            background: @colors[c-base-d];
+            border: 1px solid @colors[c-text];
+            text-align: center;
+            font-size: @sizes[v-medium];
+            width: 100%;
+
+            &[disabled] {
+              color: @colors[c-text-muted];
+            }
+          }
+
+          // input style for integer ranges
+          & > input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 100%;
+            background: @colors[c-base-d];
+            outline: none;
+            margin: 0px;
+            border: 1px solid @colors[c-text];
+
+            & + label[range] {
+              pointer-events: none;
+              display: flex;
+              position: absolute;
+              top: 0px;
+              right: 0px;
+              bottom: 0px;
+              left: 0px;
+              justify-content: center;
+              align-items: center;
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              appearance: none;
+              width: 0.8rem;
+              height: 100%;
+              border-top: 0.3rem solid @colors[c-text];
+              padding: 0px;
+              margin: 0px;
+            }
+
+            &::-webkit-slider-runnable-track {
+              height: 100%;
+              padding: 0px;
+              margin: 0px;
+            }
+
+            &[edited]::-webkit-slider-thumb {
+              border-top: 0.3rem solid @colors[c-warning];
+            }
+          }
+
+          // input style for actions
+          & > button {
+            background: @colors[c-base-l];
+            border: none;
+            font-size: @sizes[v-medium];
+    
+            &:not([disabled]):hover {
+              background: @colors[c-base-ll];
+            }
+
+            &[disabled] {
+              color: @colors[c-text-muted];
+            }
+    
+            &:active {
+              background: @colors[c-base-lll] !important;
+            }
+          }
+        }
+
+        // light up setting background on hover
+        &:hover {
+          background: @colors[c-base];
+        }
+      }
+    }
+  }
+
+  [edited] {
+    color: @colors[c-warning] !important;
+    border-color: @colors[c-warning] !important;
+
+    &[bottom] input {
+      color: @colors[c-warning] !important;
+      border-color: @colors[c-warning] !important;
+    }
+  }
+}

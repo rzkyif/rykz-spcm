@@ -1,0 +1,22 @@
+{
+  "setting_1_boolean": true,
+  "setting_2_decimal": 3.2,
+  "setting_3_decimal_range": 5.2,
+  "setting_4_formid": 622440,
+  "setting_5_formtype": 42,
+  "setting_6_integer": 225,
+  "setting_7_integer_range": 10,
+  "setting_8_key": 27,
+  "setting_9_list": [
+    "can",
+    "cat",
+    "car"
+  ],
+  "setting_10_map": [
+    ["Apple", 24],
+    ["Banana", 54]
+  ],
+  "setting_11_number": 42.32,
+  "setting_12_string": "42",
+  "setting_13_values": "Apple"
+}
