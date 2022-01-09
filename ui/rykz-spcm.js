@@ -910,24 +910,28 @@ function simpleEqual(object1, object2) {
 
 function applyAutoComplete(inputElement, values) {
   if (!inputElement) return;
-  let parent = inputElement.parentElement;
-  let offsetTop = inputElement.offsetTop;
-  let offsetLeft = inputElement.offsetLeft;
-  while (!parent.id.startsWith('m-setting')) {
-    offsetTop += parent.offsetTop;
-    offsetLeft += parent.offsetLeft;
-    parent = parent.parentElement;
-  }
 
   const dropdown = document.createElement('div');
   dropdown.classList.add('m-autocomplete-dropdown');
-  dropdown.style.top = offsetTop + inputElement.offsetHeight + 'px';
-  dropdown.style.left = offsetLeft + 'px';
-  dropdown.style.width = inputElement.offsetWidth + 'px';
   dropdown.toggleAttribute('hidden', true)
+
+  let parent = inputElement.parentElement;
+  while (!parent.id.startsWith('m-setting')) {
+    parent = parent.parentElement;
+  }
   parent.appendChild(dropdown);
 
   inputElement.addEventListener('input', function() {
+    let parent = this.parentElement, offsetTop = this.offsetTop, offsetLeft = this.offsetLeft;
+    while (!parent.id.startsWith('m-setting')) {
+      offsetTop += parent.offsetTop;
+      offsetLeft += parent.offsetLeft;
+      parent = parent.parentElement;
+    }
+    dropdown.style.top = offsetTop + this.offsetHeight + 'px';
+    dropdown.style.left = offsetLeft + 'px';
+    dropdown.style.width = this.offsetWidth + 'px';
+
     const searchResult = this.value != '' ? values.filter((value) => value.toLowerCase().startsWith(this.value.toLowerCase())) : values;
     dropdown.innerHTML = '';
     for (const result of searchResult) {
