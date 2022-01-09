@@ -13,7 +13,10 @@ If you've already implemented Skyrim Platform's settings API properly (e.g. your
 - [Settings API Implementation](#settings-api-implementation)
 - [SPCM File](#spcm-file)
   - [Description](#description)
-  - [Structure](#structure)
+  - [File Structure](#file-structure)
+  - [Setting Visibility](#setting-visibility)
+    - [Visibility Conditions](#visibility-conditions)
+    - [Inferrable Value Types](#inferrable-value-types)
   - [Supported Setting Types](#supported-setting-types)
     - [Action](#action)
     - [Boolean](#boolean)
@@ -44,7 +47,7 @@ When a companion SPCM file is not found for a settings file, SPCM will only load
 
 You can generate a template for a new SPCM file from an existing settings file with the [SPCM File Generator](./spcm-generator/dist/index.html).
 
-## Structure
+## File Structure
 
 The general structure of an SPCM file is as follows:
 
@@ -69,22 +72,49 @@ The general structure of an SPCM file is as follows:
 [    ]  }
 ```
 
-Refer to the line numbers above for the following descriptions.
+Refer to the line numbers above for the following explanations.
 
-| Line Number | Description                                                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1           | A `string`.  The title of the menu that will show in SPCM.                                                                                                                                   |
-| 2           | An `object`.  Each key has to start with "category_", and the value should be a `Category`.                                                                                                  |
-| 3           | An example `Category`, with the key "category_hotkeys".                                                                                                                                      |
-| 4           | A `string`.  The title of the category that will show in SPCM.                                                                                                                               |
-| 5           | An `object`.  Each key has to also exist in the settings file as an actual setting, and the value should be a Setting.                                                                            |
-| 6           | An example `Setting`, with the key "key_menu".  There should also be a "key_menu" in the settings file.                                                                                      |
-| 7           | A `string`.  The name of the setting that will show in SPCM.  Optional, default is the key.                                                                                                  |
-| 8           | A `string`.  The description of the setting that will show in SPCM.  Optional, default is no description.                                                                                    |
-| 9           | A `string`.  The type of the setting that is used for input management and checking.  Optional for settings of type `number`, `boolean`, and `string`, but it is very highly recommended that this is defined. Has to be valid according to the [supported setting types](#supported-setting-types).        |
-| 10          | A value of a supported type. The default value of the setting. Optional, default is no default value (user can't reset setting to default). Has to be valid according to the setting's type. |
-| 11          | Zero or more other `Setting`s.                                                                                                                                                              |
-| 12          | Zero or more other `Category`s.                                                                                                                                                             |
+| Line        | Explanation                                                                                                                                                                                                                                                             |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1           | A `string`.  The title of the menu that will show in SPCM.                                                                                                                                                                                                              |
+| 2           | An `object`.  Each key has to start with "category_", and the value should be a `Category`.                                                                                                                                                                             |
+| 3           | An example `Category`, with the key "category_hotkeys".                                                                                                                                                                                                                 |
+| 4           | A `string`.  The title of the category that will show in SPCM.                                                                                                                                                                                                          |
+| 5           | An `object`.  Each key has to also exist in the settings file as an actual setting, and the value should be a Setting.                                                                                                                                                  |
+| 6           | An example `Setting`, with the key "key_menu".  There should also be a "key_menu" in the settings file.                                                                                                                                                                 |
+| 7           | A `string`.  The name of the setting that will show in SPCM.  Optional, default is the key.                                                                                                                                                                             |
+| 8           | A `string`.  The description of the setting that will show in SPCM.  Optional, default is no description.                                                                                                                                                               |
+| 9           | A `string`.  The type of the setting that is used for input management and checking.  Optional, but if not defined your setting [may not be visible](#setting-visibility). Has to be valid according to the [supported setting types](#supported-setting-types).        |
+| 10          | A value of a supported type. The default value of the setting. Optional, default is no default value (user can't reset setting to default). Has to be valid according to the setting's type.                                                                            |
+| 11          | Zero or more other `Setting`s.                                                                                                                                                                                                                                          |
+| 12          | Zero or more other `Category`s.                                                                                                                                                                                                                                         |
+
+## Setting Visibility
+
+### Visibility Conditions
+**When an SPCM file is found**, the SPCM menu will only show settings that:
+- Are under at least one category in the SPCM file.
+- Has a key that doesn't start with "_".
+- Has a defined `type` string that is [valid](#supported-setting-types) **OR** Has a value (in the settings file) that is [inferrable by SPCM](#inferrable-value-types).
+
+**When an SPCM file is not found**, the SPCM menu will only show settings that:
+- Are in the settings file.
+- Has a key that doesn't start with "_".
+- Has a value that is [inferrable by SPCM](#inferrable-value-types).
+
+### Inferrable Value Types
+- `number`
+  ```json
+  1, 2.3, -1, -24.23, ...
+  ```
+- `boolean`
+  ```json
+  true, false
+  ```
+- `string`
+  ```json
+  "this is a string", "24", "", ...
+  ```
 
 ## Supported Setting Types
 
