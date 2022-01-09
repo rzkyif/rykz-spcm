@@ -93,7 +93,7 @@ Refer to the line numbers above for the following explanations.
 
 ### Visibility Conditions
 **When an SPCM file is found**, the SPCM menu will only show settings that:
-- Are under at least one category in the SPCM file.
+- Are under at least one category in the SPCM file **AND** are in the settings file.
 - Has a key that doesn't start with "_".
 - Has a defined `type` string that is [valid](#supported-setting-types) **OR** Has a value (in the settings file) that is [inferrable by SPCM](#inferrable-value-types).
 
