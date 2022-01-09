@@ -129,7 +129,7 @@ function queueSettingsSave(filename: `${string}-settings.txt`, pluginSettings: P
     
     for (const categoryKV of Object.entries(mappedPluginSettings[filename].categories)) {
       for (const settingKV of Object.entries(categoryKV[1].settings)) {
-        if (jsonSettings[settingKV[0]] && settingKV[1]['_edited']) {
+        if (jsonSettings[settingKV[0]] !== undefined && settingKV[1]['_edited']) {
           jsonSettings[settingKV[0]] = settingKV[1]['_value'];
         }
       }
@@ -199,6 +199,7 @@ function processSettingsFile(filename: `${string}-settings.txt`): PluginSettings
       const category = categories[categoryKey];
       for (const settingKey of Object.keys(category.settings)) {
         const setting = category.settings[settingKey];
+        
         if (setting['type'] && (setting['type'] as string).search(DataTypeRegex) != 0) continue;
         if (!validSettingKeys.includes(settingKey) && (!setting['type'] || setting['type'].slice(0,6) != 'action')) continue;
 
