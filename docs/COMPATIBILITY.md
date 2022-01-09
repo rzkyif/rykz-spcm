@@ -120,7 +120,7 @@ Refer to the line numbers above for the following explanations.
 
 The following is a list of setting types that are currently supported by SPCM. Each section will include one or more examples. 
 
-The examples will include an example type string for that setting type and a default value with a type / structure that you can expect to receive in the actual settings file when a user modifies a setting of that setting type.
+The examples will include an example `type` string for that setting type and a `default` value with a type / structure that you can expect to receive in the actual settings file when a user modifies a setting of that setting type.
 
 ### Action
 Special type of `Setting`s that doesn't need an actual counterpart in the settings file. 
@@ -274,7 +274,7 @@ Example `Setting`s :
 ```js
 {
   ...
-  "type": "list:number",  // valid values are all valid DXScanCodes
+  "type": "list:number",  // valid values are lists of numbers
   "default": [
     4, 2, 0, 6.9
   ]
@@ -288,7 +288,7 @@ Example `Setting`s :
 ```js
 {
   ...
-  "type": "map:string,number",  // valid values are all valid DXScanCodes
+  "type": "map:string,number",  // valid values are maps of string to number
   "default": [
     ['bob', 29239],
     ['anne', 24.2]
