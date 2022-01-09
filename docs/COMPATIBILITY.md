@@ -334,7 +334,7 @@ Example `Setting`s :
 ```js
 {
   ...
-  "type": "values:Left,Center,Right,0",  // valid values are Left, Center, and Right
-  "default": "0"
+  "type": "values:Left,Center,Right",  // valid values are Left, Center, and Right
+  "default": "Left"
 }
 ```
