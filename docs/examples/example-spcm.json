@@ -2,7 +2,7 @@
   "title": "Example Settings",
   "categories": {
     "category_a": {
-      "title": "A",
+      "title": "Part 1",
       "settings": {
         "setting_0_action": {
           "name": "Action Setting",
@@ -48,7 +48,7 @@
       }
     },
     "category_b": {
-      "title": "B",
+      "title": "Part 2",
       "settings": {
         "setting_7_integer_range": {
           "name": "Integer Range Setting",
@@ -74,7 +74,7 @@
         },
         "setting_10_map": {
           "name": "Map of String to Integer Setting",
-          "desc": "This setting can only be a map of string to integers.",
+          "desc": "This setting can only be a map of strings to integers.",
           "type": "map:string,integer",
           "default": [
             ["Apple", 24],
@@ -95,7 +95,7 @@
         },
         "setting_13_values": {
           "name": "Values Setting",
-          "desc": "This setting can only be a valid value.",
+          "desc": "This setting can only be Apple, Banana, or Pear of Destruction.",
           "type": "values:Apple,Banana,Pear of Destruction",
           "default": "Apple"
         }
