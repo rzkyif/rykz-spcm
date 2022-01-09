@@ -14,6 +14,7 @@
     "build-ui": "yarn run webpack --config ./webpack.minified.config.js",
     "build-ui-nonminified": "yarn run webpack --config ./webpack.nonminified.config.js",
     "build-spcm-generator": "yarn run webpack --config ./docs/spcm-generator/webpack.config.js",
+    "build-demo": "yarn build-ui-nonminified && node ./scripts/publish-demo.js",
     "helper-dev": "yarn build-ui-nonminified && node ./scripts/post-compile.js main ui settings"
   },
   "author": "rzkyif AKA rykz",

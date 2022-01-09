@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="m-overlay-key" class="m-overlay" hidden>
+      Press any key to BIND<br/><br/>Press ESC to UNBIND<br/><br/>Left click to CANCEL
+    </div>
+    <div id="m-context-menu" hidden>
+      <button saved>Reset to Initial Value</button>
+      <button default hidden>Reset to Default Value</button>
+    </div>
+    <div id="m-background">
+      <div id="m-plugins-container" class="m-container">
+        <span>Plugins</span>
+        <div actions>
+          <button onclick="dataToggleFilter();" spcm-only>Show Non-SPCM</button>
+        </div>
+        <div id="m-plugins" class="m-list"></div>
+      </div>
+      <div class="m-separator"></div>
+      <div id="m-settings-container" class="m-container">
+        <span>Settings</span>
+        <div actions hidden>
+          <button onclick="saveStart();" save>Save</button>
+          <button onclick="saveRevert();" revert>Revert</button>
+        </div>
+        <div id="m-settings" class="m-list"></div>
+      </div>
+    </div>
+  </body>
+  <script src="./rykz-spcm.js"></script>
+</html>
