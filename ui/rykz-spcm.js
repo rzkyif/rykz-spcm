@@ -122,12 +122,17 @@ const inputTemplate = (path, ensureType, ensureVariables, value, defaultValue, e
       let inputHTML = '';
       if (value) for (let i = 0; i < value.length; i++) {
         if (ensureType == 'list') {
-          inputHTML += inputTemplate(`${path},${i}`, ensureVariables[0], '', value[i], defaultValue ? defaultValue[i] : undefined)
+          inputHTML += `
+            <div entry>
+              ${inputTemplate(`${path},${i}`, ensureVariables[0], '', value[i], defaultValue ? defaultValue[i] : undefined)}
+              <button path="${path},${i}" delete-button>&times;</button>
+            </div>`
         } else {
           inputHTML += `
             <div entry>
               ${inputTemplate(`${path},${i},0`, ensureVariables[0], '', value[i][0], defaultValue && defaultValue[i] ? defaultValue[i][0] : undefined)}
               ${inputTemplate(`${path},${i},1`, ensureVariables[1], '', value[i][1], defaultValue && defaultValue[i] ? defaultValue[i][1] : undefined)}
+              <button path="${path},${i}" delete-button>&times;</button>
             </div>
           `;
         }
@@ -278,11 +283,18 @@ function linkStart(htmlElement) {
 
       if (!dataPath) continue;
 
-      if (TAG == 'button' && element.hasAttribute('append-button')) {
-        element.addEventListener('click', () => {
-          dataPathAppendLast(dataPath);
-        });
-        continue;
+      if (TAG == 'button') {
+        if (element.hasAttribute('append-button')) {
+          element.addEventListener('click', () => {
+            dataPathAppendLast(dataPath);
+          });
+          continue;
+        } else if (element.hasAttribute('delete-button')) {
+          element.addEventListener('click', () => {
+            dataPathDeleteRow(dataPath);
+          });
+          continue;
+        }
       }
 
       if (!ensure) continue;
@@ -601,14 +613,38 @@ function dataPathAppendLast(dataPath) {
   const settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
 
   const setting = data[dataKey].categories[categoryKey].settings[settingsKey];
+  const ensureType = setting['type'].split(':')[0]
 
-  if (!['list', 'map'].includes(setting['type'].split(':')[0])) return;
+  if (!['list', 'map'].includes(ensureType)) return;
 
-  setting['_value'].push(simpleClone(setting['_value'][setting['_value'].length-1]));
+  setting['_value'].push(ensureType == 'list' ? null : [null, null]);
 
   const loadedParts = loadedDataPath.split(',');
   dataLoad(loadedParts[0], loadedParts[1]);
   dataPathMarkEdited(dataPath);
+  dataPathRefreshInputs(dataPath);
+}
+
+window.dataPathDeleteRow = dataPathDeleteRow;
+function dataPathDeleteRow(dataPath) {
+  const parts = dataPath.split(',');
+  if (parts.length != 4) return;
+
+  const dataKey = dataKeys[parts[0]];
+  const categoryKey = categoryKeys[parts[0]][parts[1]];
+  const settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
+
+  const setting = data[dataKey].categories[categoryKey].settings[settingsKey];
+  const ensureType = setting['type'].split(':')[0]
+
+  if (!['list', 'map'].includes(ensureType)) return;
+
+  setting['_value'].splice(parts[3], 1);
+
+  const loadedParts = loadedDataPath.split(',');
+  dataLoad(loadedParts[0], loadedParts[1]);
+  dataPathMarkEdited(dataPath);
+  dataPathRefreshInputs(dataPath);
 }
 
 window.dataPathElement = dataPathElement;
@@ -646,6 +682,27 @@ function dataPathMarkEdited(dataPath, edited=true, check=true) {
   if (element) {
     elementMarkEdited(element, edited);
     if (check) saveEditedCheck();
+  }
+}
+
+window.dataPathRefreshInputs = dataPathRefreshInputs;
+function dataPathRefreshInputs(dataPath) {
+  const element = dataPathElement(dataPath);
+  if (element) {
+    switch (element.tagName) {
+      case 'INPUT':
+        element.dispatchEvent(new Event('input'));
+        element.dispatchEvent(new Event('change'));
+        element.dispatchEvent(new Event('blur'));
+        break;
+      case 'DIV':
+        for (const inputElement of element.getElementsByTagName('input')) {
+          inputElement.dispatchEvent(new Event('input'));
+          inputElement.dispatchEvent(new Event('change'));
+          inputElement.dispatchEvent(new Event('blur'));
+        }
+        break;
+    }
   }
 }
 
@@ -703,6 +760,7 @@ function saveRevert() {
 ////////// DATA CONVERSION FUNCTIONS
 
 function convertToDisplay(value, ensureType=null) {
+  if (value === null || value === undefined) return value;
   switch (ensureType) {
     case "key":
       return DXSCANCODE_NAME_MAP[value];
@@ -718,6 +776,7 @@ function convertToDisplay(value, ensureType=null) {
 }
 
 function convertToValue(display, ensureType=null) {
+  if (display === null || display === undefined) return display;
   switch (ensureType) {
     case "integer":
       return parseInt(display);
@@ -849,20 +908,27 @@ function simpleEqual(object1, object2) {
   return JSON.stringify(object1) === JSON.stringify(object2);
 }
 
-function applyAutoComplete(inputElement, values, hintCount=10) {
+function applyAutoComplete(inputElement, values) {
   if (!inputElement) return;
-  const parent = inputElement.parentElement;
+  let parent = inputElement.parentElement;
+  let offsetTop = inputElement.offsetTop;
+  let offsetLeft = inputElement.offsetLeft;
+  while (!parent.id.startsWith('m-setting')) {
+    offsetTop += parent.offsetTop;
+    offsetLeft += parent.offsetLeft;
+    parent = parent.parentElement;
+  }
 
   const dropdown = document.createElement('div');
   dropdown.classList.add('m-autocomplete-dropdown');
-  dropdown.style.top = inputElement.offsetTop + inputElement.offsetHeight + 'px';
-  dropdown.style.left = inputElement.offsetLeft + 'px';
+  dropdown.style.top = offsetTop + inputElement.offsetHeight + 'px';
+  dropdown.style.left = offsetLeft + 'px';
   dropdown.style.width = inputElement.offsetWidth + 'px';
   dropdown.toggleAttribute('hidden', true)
   parent.appendChild(dropdown);
 
   inputElement.addEventListener('input', function() {
-    const searchResult = this.value != '' ? values.filter((value) => value.toLowerCase().startsWith(this.value.toLowerCase())).slice(0,hintCount) : values.slice(0,hintCount);
+    const searchResult = this.value != '' ? values.filter((value) => value.toLowerCase().startsWith(this.value.toLowerCase())) : values;
     dropdown.innerHTML = '';
     for (const result of searchResult) {
       const button = elementFromHTML(`
