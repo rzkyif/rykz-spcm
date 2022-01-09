@@ -1,4 +1,4 @@
-# SPCM Compatibility Guide
+# Compatibility Guide
 
 ## Introduction
 
@@ -104,6 +104,36 @@ Example `Setting`s :
   "type": "action:Spawn,RykzChickenSpawner_Spawn"
   // will show as a button titled "Spawn" in SPCM, 
   // and will send out the "RykzChickenSpawner_Spawn" ModEvent when clicked
+}
+```
+Example on how to receive the ModEvent in your plugin :
+```ts
+{
+  // on plugin initialization, register the Player to receive the ModEvent
+  // ensure this is only done once between hot reloads using SP's storage API
+  const storagePath = `rykz-chicken-spawner-events-registered`;
+  if (storage[storagePath] !== true) {
+    const player = Game.getPlayer();
+    if (player) {
+      player.registerForModEvent(
+        "RykzChickenSpawner_Spawn",
+        "On_RykzChickenSpawner_Spawn"
+      );
+      storage[storagePath] = true;
+    }
+  }
+
+  // on plugin initialization, add a hook for the event on the Player
+  hooks.sendPapyrusEvent.add(
+    {
+      enter() {
+        spawnChicken(); // actual code that runs when the button is pressed
+      },
+    },
+    0x14,
+    0x14,
+    "On_RykzChickenSpawner_Spawn"
+  );
 }
 ```
 
