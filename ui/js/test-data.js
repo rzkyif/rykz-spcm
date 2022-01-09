@@ -89,23 +89,17 @@ export default {
             "_friendlyName": true
           },
           "setting_9_list": {
-            "name": "List of String Setting",
-            "desc": "This setting can only be a list of strings.",
-            "type": "list:string",
+            "name": "List of FormType Setting",
+            "desc": "This setting can only be a list of FormTypes.",
+            "type": "list:formtype",
             "default": [
-              "can",
-              "cat",
-              "car"
+              43
             ],
             "_value": [
-              "can",
-              "cat",
-              "car"
+              43
             ],
             "_initialValue": [
-              "can",
-              "cat",
-              "car"
+              43
             ],
             "_friendlyName": true
           },

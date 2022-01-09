@@ -8,9 +8,7 @@
   "setting_7_integer_range": 10,
   "setting_8_key": 27,
   "setting_9_list": [
-    "can",
-    "cat",
-    "car"
+    43
   ],
   "setting_10_map": [
     ["Apple", 24],
