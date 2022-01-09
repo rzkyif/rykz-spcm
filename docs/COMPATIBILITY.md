@@ -33,9 +33,12 @@ If you've already implemented Skyrim Platform's settings API properly (e.g. your
 
 # Settings API Implementation
 
-To be added. 
+To be added. The point is, your plugin has to be able to properly survive a hot reload and use Skyrim Platform's settings API.
 
-For now refer to the [official documentation](https://github.com/skyrim-multiplayer/skymp/blob/main/docs/skyrim_platform/new_methods.md#settings) or [look at how SPCM does it](https://github.com/rzkyif/rykz-spcm/blob/master/src/main.ts).
+For now, refer to these: 
+- [Official documentation for the settings API](https://github.com/skyrim-multiplayer/skymp/blob/main/docs/skyrim_platform/new_methods.md#settings)
+- [Official cookbook on how to properly initialize your plugin and make variables survive a hot reload](https://github.com/skyrim-multiplayer/skymp/blob/main/docs/skyrim_platform/cookbook.md#plugin-initialization)
+- [SPCM's initialization code](https://github.com/rzkyif/rykz-spcm/blob/d9139c27ac4f58518110db9f2fc1840bc0bee10d/src/main.ts#L38)
 
 # SPCM File
 
