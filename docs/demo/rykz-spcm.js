@@ -4912,7 +4912,7 @@ handlePrototype(DOMTokenListPrototype, 'DOMTokenList');
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html {\n  height: 100%;\n  background: transparent;\n  overflow: hidden;\n  font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;\n  font-size: 1.8vh;\n}\nhtml * {\n  color: #ebebeb;\n}\nbody {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin: 0px;\n  height: 100%;\n  z-index: -3;\n}\nbody *:focus {\n  outline: none;\n}\n::selection {\n  background: #141414;\n  color: #ebebeb;\n}\n[filtered=\"true\"],\n[hidden] {\n  display: none !important;\n}\n.m-overlay {\n  position: fixed;\n  top: 0px;\n  right: 0px;\n  bottom: 0px;\n  left: 0px;\n  background: rgba(67, 67, 67, 0.6);\n  font-size: 1.4rem;\n  z-index: 10;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.m-container {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  z-index: 1;\n}\n.m-container > span {\n  display: flex;\n  align-items: center;\n  user-select: none;\n  min-height: 1.4rem;\n  font-size: 0.8rem;\n}\n.m-container .m-list {\n  margin-top: 0.0625rem;\n}\n.m-list {\n  flex: 1;\n  border: 1px solid #ebebeb;\n  overflow-y: auto;\n  overflow-x: hidden;\n  display: flex;\n  flex-direction: column;\n}\n.m-list::-webkit-scrollbar {\n  width: 0.6rem;\n}\n.m-list::-webkit-scrollbar-track {\n  background: rgba(105, 105, 105, 0.6);\n}\n.m-list::-webkit-scrollbar-thumb {\n  background: rgba(131, 131, 131, 0.6);\n}\n.m-list::-webkit-scrollbar-thumb:hover {\n  background: rgba(143, 143, 143, 0.6);\n}\n.m-list::-webkit-scrollbar-thumb:active {\n  background: #ebebeb;\n}\n.m-separator {\n  height: 100%;\n  width: 0.25rem;\n}\n#m-context-menu {\n  display: flex;\n  flex-direction: column;\n  position: fixed;\n  z-index: 100;\n  padding: 0.3rem;\n}\n#m-context-menu > button {\n  background: rgba(67, 67, 67, 0.85);\n  border: 1px solid #ebebeb;\n  padding: 0.3rem;\n  white-space: nowrap;\n  font-size: 0.8rem;\n  margin-top: -1px;\n}\n#m-context-menu > button:hover {\n  background: rgba(80, 80, 80, 0.85);\n}\n#m-context-menu > button:active {\n  background: rgba(92, 92, 92, 0.85);\n}\n.m-autocomplete-dropdown {\n  display: flex;\n  flex-direction: column;\n  position: absolute;\n  border: 1px solid #ebebeb;\n  border-top: none;\n  overflow-x: hidden;\n  overflow-y: auto;\n  max-height: 5.1rem;\n  z-index: 100;\n}\n.m-autocomplete-dropdown > button {\n  flex: 1;\n  background: rgba(131, 131, 131, 0.95);\n  border: none;\n  font-size: 1rem;\n  z-index: 100;\n}\n.m-autocomplete-dropdown > button > span {\n  color: #b8b8b8;\n}\n.m-autocomplete-dropdown > button:hover {\n  background: rgba(143, 143, 143, 0.95);\n}\n.m-autocomplete-dropdown > button:active {\n  background: rgba(156, 156, 156, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar {\n  width: 0.5rem;\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-track {\n  background: rgba(131, 131, 131, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-thumb {\n  background: rgba(156, 156, 156, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-thumb:hover {\n  background: rgba(169, 169, 169, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-thumb:active {\n  background: #ebebeb;\n}\n#m-background {\n  position: relative;\n  background: rgba(0, 0, 0, 0.6);\n  padding: 0.5rem 1rem;\n  overflow: hidden;\n  min-width: 70%;\n  max-width: 70%;\n  min-height: 90%;\n  max-height: 90%;\n  display: flex;\n}\n@media (max-aspect-ratio: 1/1) {\n  #m-background {\n    flex-direction: column;\n  }\n  #m-background .m-separator {\n    width: 100% !important;\n    height: 0.25rem !important;\n  }\n  #m-background #m-settings-container {\n    height: 0px;\n  }\n}\n#m-background::before {\n  content: \"\";\n  position: absolute;\n  top: 0.25rem;\n  right: 0.25rem;\n  bottom: 0.25rem;\n  left: 0.25rem;\n  border: 1px solid #ebebeb;\n}\n#m-background #m-plugins-container > div[actions] {\n  display: flex;\n  position: absolute;\n  top: 1px;\n  right: 0px;\n  height: 1.4rem;\n  border: none;\n}\n#m-background #m-plugins-container > div[actions] > button {\n  font-size: 0.8rem;\n  border: 1px solid #ebebeb;\n  border-bottom: none;\n  margin-top: 0.25rem;\n  background: rgba(184, 184, 184, 0.4);\n  color: #ebebeb;\n}\n#m-background #m-plugins-container > div[actions] > button:not([disabled]):hover {\n  background: #9e9e9e;\n}\n#m-background #m-plugins-container > div[actions] > button:active {\n  background: #ababab;\n}\n#m-background #m-plugins-container #m-plugins {\n  overflow-y: auto;\n}\n#m-background #m-plugins-container #m-plugins > div {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  padding: 0px -2px;\n}\n#m-background #m-plugins-container #m-plugins > div > button {\n  flex: 1;\n  user-select: none;\n  padding: 0.125rem 0.25rem 0px 0.25rem;\n  font-size: 1.2rem;\n  background: none;\n  border: none;\n  text-align: left;\n  border-left: 0px solid transparent;\n  transition: border-left 0.1s;\n}\n#m-background #m-plugins-container #m-plugins > div > button:not([selected]):hover {\n  border-left: 0.5rem solid rgba(143, 143, 143, 0.6);\n  background: rgba(118, 118, 118, 0.6);\n}\n#m-background #m-plugins-container #m-plugins > div > button[selected] {\n  border-left: 0.5rem solid #ebebeb;\n  background: rgba(131, 131, 131, 0.6);\n  color: #ebebeb;\n}\n#m-background #m-plugins-container #m-plugins > div > button[raw] {\n  color: #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > button[raw]:not([selected]):hover {\n  border-left: 0.5rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > button[raw][selected] {\n  border-left: 0.5rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > div {\n  display: none;\n  flex-direction: column;\n  overflow: hidden;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button {\n  flex: 1;\n  user-select: none;\n  padding: 0.125rem 0.25rem 0px 0.25rem;\n  font-size: 1rem;\n  background: none;\n  border: none;\n  text-align: left;\n  border-left: 0.5rem solid #ebebeb;\n  transition: border-left 0.1s;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button:not([selected]):hover {\n  border-left: 1rem solid #ebebeb;\n  background: rgba(118, 118, 118, 0.6);\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[selected] {\n  border-left: 1rem solid #ebebeb;\n  background: rgba(131, 131, 131, 0.6);\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[raw] {\n  color: #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[raw]:not([selected]):hover {\n  border-left: 1rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[raw][selected] {\n  border-left: 1rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div[selected] > div {\n  display: flex;\n}\n#m-background #m-settings-container {\n  flex: 3;\n}\n#m-background #m-settings-container > div[actions] {\n  display: flex;\n  position: absolute;\n  top: 1px;\n  right: 0px;\n  height: 1.4rem;\n  border: none;\n}\n#m-background #m-settings-container > div[actions] > button {\n  font-size: 0.8rem;\n  border: 1px solid #ebebeb;\n  border-bottom: none;\n  margin-top: 0.25rem;\n}\n#m-background #m-settings-container > div[actions] > button[save] {\n  background: rgba(80, 173, 80, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[save]:not([disabled]):hover {\n  background: rgba(97, 182, 97, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[save]:active {\n  background: rgba(114, 190, 114, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[revert] {\n  background: rgba(173, 80, 80, 0.6);\n  border-left: none;\n}\n#m-background #m-settings-container > div[actions] > button[revert]:not([disabled]):hover {\n  background: rgba(182, 97, 97, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[revert]:active {\n  background: rgba(190, 114, 114, 0.6);\n}\n#m-background #m-settings-container #m-settings {\n  position: relative;\n  padding: 0.25rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n#m-background #m-settings-container #m-settings .m-setting {\n  display: flex;\n  overflow: visible;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[left] > label,\n#m-background #m-settings-container #m-settings .m-setting > div[top] > label {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  font-size: 0.8rem;\n  user-select: none;\n  font-family: 'Courier New', Courier, monospace;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[left] > label[friendly],\n#m-background #m-settings-container #m-settings .m-setting > div[top] > label[friendly] {\n  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\n  font-weight: bold;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[left] > span,\n#m-background #m-settings-container #m-settings .m-setting > div[top] > span {\n  font-size: 0.8rem;\n  user-select: none;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=single] div[left],\n#m-background #m-settings-container #m-settings .m-setting[type=action] div[left] {\n  padding: 0.25rem 0.25rem;\n  display: flex;\n  flex-direction: column;\n  flex: 2;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=single] div[right],\n#m-background #m-settings-container #m-settings .m-setting[type=action] div[right] {\n  position: relative;\n  padding: 0.25rem 0.25rem;\n  display: flex;\n  flex: 1;\n  border-left: 1px solid rgba(131, 131, 131, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=single] div[right] > *,\n#m-background #m-settings-container #m-settings .m-setting[type=action] div[right] > * {\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list],\n#m-background #m-settings-container #m-settings .m-setting[type=map] {\n  flex-direction: column;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[top],\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[top] {\n  padding: 0.25rem 0.25rem;\n  display: flex;\n  flex-direction: column;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom],\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] {\n  border: 1px solid #ebebeb;\n  overflow-y: auto;\n  overflow-x: hidden;\n  flex-direction: column;\n  position: relative;\n  margin: 0px 0.25rem 0.25rem 0.25rem;\n  display: flex;\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar {\n  width: 0.6rem;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-track,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-track {\n  background: rgba(105, 105, 105, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-thumb,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-thumb {\n  background: rgba(131, 131, 131, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-thumb:hover,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-thumb:hover {\n  background: rgba(143, 143, 143, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-thumb:active,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-thumb:active {\n  background: #ebebeb;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] > *,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] > * {\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] div[entry],\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] div[entry] {\n  position: relative;\n  display: flex;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] div[entry] > input,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] div[entry] > input {\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] input,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] input {\n  border: none;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] button,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] button {\n  background: rgba(118, 118, 118, 0.6);\n  border: none;\n  font-size: 0.8rem;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] button:not([disabled]):hover,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] button:not([disabled]):hover {\n  background: rgba(131, 131, 131, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] button:active,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] button:active {\n  background: rgba(143, 143, 143, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input {\n  background: rgba(92, 92, 92, 0.6);\n  border: 1px solid #ebebeb;\n  text-align: center;\n  font-size: 1rem;\n  width: 100%;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[disabled] {\n  color: #b8b8b8;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[ensure=\"boolean\"],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[ensure=\"boolean\"],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[ensure=\"boolean\"] {\n  cursor: pointer;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[type=\"range\"],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[type=\"range\"],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[type=\"range\"] {\n  overflow: hidden;\n  -webkit-appearance: none;\n  appearance: none;\n  width: 100%;\n  height: 100%;\n  background: rgba(92, 92, 92, 0.6);\n  outline: none;\n  margin: 0px;\n  border: 1px solid #ebebeb;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[type=\"range\"] + label[range],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[type=\"range\"] + label[range],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[type=\"range\"] + label[range] {\n  pointer-events: none;\n  display: flex;\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  bottom: 0px;\n  left: 0px;\n  justify-content: center;\n  align-items: center;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[type=\"range\"]::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[type=\"range\"]::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[type=\"range\"]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1px;\n  height: 100%;\n  box-shadow: -12vw 0 0 12vw rgba(235, 235, 235, 0.4);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[type=\"range\"]::-webkit-slider-runnable-track,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[type=\"range\"]::-webkit-slider-runnable-track,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[type=\"range\"]::-webkit-slider-runnable-track {\n  height: 100%;\n  padding: 0px;\n  margin: 0px;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[type=\"range\"][edited]::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[type=\"range\"][edited]::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[type=\"range\"][edited]::-webkit-slider-thumb {\n  box-shadow: -12vw 0 0 12vw rgba(255, 196, 0, 0.4);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button {\n  background: rgba(131, 131, 131, 0.95);\n  border: none;\n  font-size: 1rem;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button:not([disabled]):hover,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button:not([disabled]):hover,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button:not([disabled]):hover {\n  background: rgba(143, 143, 143, 0.95);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button[disabled] {\n  color: #b8b8b8;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button:active,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button:active,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button:active {\n  background: rgba(156, 156, 156, 0.95) !important;\n}\n#m-background #m-settings-container #m-settings .m-setting:hover {\n  background: rgba(105, 105, 105, 0.6);\n}\n#m-background [edited] {\n  color: #ffc400 !important;\n  border-color: #ffc400 !important;\n}\n#m-background [edited][bottom] input {\n  color: #ffc400 !important;\n  border-color: #ffc400 !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html {\n  height: 100%;\n  background: transparent;\n  overflow: hidden;\n  font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;\n  font-size: 1.8vh;\n}\nhtml * {\n  color: #ebebeb;\n}\nbody {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin: 0px;\n  height: 100%;\n  z-index: -3;\n}\nbody *:focus {\n  outline: none;\n}\n::selection {\n  background: #141414;\n  color: #ebebeb;\n}\n[filtered=\"true\"],\n[hidden] {\n  display: none !important;\n}\n.m-overlay {\n  position: fixed;\n  top: 0px;\n  right: 0px;\n  bottom: 0px;\n  left: 0px;\n  background: rgba(67, 67, 67, 0.6);\n  font-size: 1.4rem;\n  z-index: 10;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.m-container {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  z-index: 1;\n}\n.m-container > span {\n  display: flex;\n  align-items: center;\n  user-select: none;\n  min-height: 1.4rem;\n  font-size: 0.8rem;\n}\n.m-container .m-list {\n  margin-top: 0.0625rem;\n}\n.m-list {\n  flex: 1;\n  border: 1px solid #ebebeb;\n  overflow-y: auto;\n  overflow-x: hidden;\n  display: flex;\n  flex-direction: column;\n}\n.m-list::-webkit-scrollbar {\n  width: 0.6rem;\n}\n.m-list::-webkit-scrollbar-track {\n  background: rgba(105, 105, 105, 0.6);\n}\n.m-list::-webkit-scrollbar-thumb {\n  background: rgba(131, 131, 131, 0.6);\n}\n.m-list::-webkit-scrollbar-thumb:hover {\n  background: rgba(143, 143, 143, 0.6);\n}\n.m-list::-webkit-scrollbar-thumb:active {\n  background: #ebebeb;\n}\n.m-separator {\n  height: 100%;\n  width: 0.25rem;\n}\n#m-context-menu {\n  display: flex;\n  flex-direction: column;\n  position: fixed;\n  z-index: 100;\n  padding: 0.3rem;\n}\n#m-context-menu > button {\n  background: rgba(67, 67, 67, 0.85);\n  border: 1px solid #ebebeb;\n  padding: 0.3rem;\n  white-space: nowrap;\n  font-size: 0.8rem;\n  margin-top: -1px;\n}\n#m-context-menu > button:hover {\n  background: rgba(80, 80, 80, 0.85);\n}\n#m-context-menu > button:active {\n  background: rgba(92, 92, 92, 0.85);\n}\n.m-autocomplete-dropdown {\n  display: flex;\n  flex-direction: column;\n  position: absolute;\n  border: 1px solid #ebebeb;\n  overflow-x: hidden;\n  overflow-y: auto;\n  max-height: 5.5rem;\n  z-index: 100;\n}\n.m-autocomplete-dropdown > button {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex: 1;\n  background: rgba(131, 131, 131, 0.95);\n  border: none;\n  font-size: 1rem;\n  z-index: 100;\n}\n.m-autocomplete-dropdown > button > span {\n  color: #b8b8b8;\n}\n.m-autocomplete-dropdown > button:hover {\n  background: rgba(143, 143, 143, 0.95);\n}\n.m-autocomplete-dropdown > button:active {\n  background: rgba(156, 156, 156, 0.95);\n}\n.m-autocomplete-dropdown > label {\n  display: flex;\n  justify-content: center;\n  flex: 1;\n  background: rgba(255, 113, 113, 0.9);\n  font-size: 1rem;\n  z-index: 100;\n}\n.m-autocomplete-dropdown::-webkit-scrollbar {\n  width: 0.5rem;\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-track {\n  background: rgba(131, 131, 131, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-thumb {\n  background: rgba(156, 156, 156, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-thumb:hover {\n  background: rgba(169, 169, 169, 0.95);\n}\n.m-autocomplete-dropdown::-webkit-scrollbar-thumb:active {\n  background: #ebebeb;\n}\n#m-background {\n  position: relative;\n  background: rgba(0, 0, 0, 0.6);\n  padding: 0.5rem 1rem;\n  overflow: hidden;\n  min-width: 70%;\n  max-width: 70%;\n  min-height: 90%;\n  max-height: 90%;\n  display: flex;\n}\n@media (max-aspect-ratio: 1/1) {\n  #m-background {\n    flex-direction: column;\n  }\n  #m-background .m-separator {\n    width: 100% !important;\n    height: 0.25rem !important;\n  }\n  #m-background #m-settings-container {\n    height: 0px;\n  }\n}\n#m-background::before {\n  content: \"\";\n  position: absolute;\n  top: 0.25rem;\n  right: 0.25rem;\n  bottom: 0.25rem;\n  left: 0.25rem;\n  border: 1px solid #ebebeb;\n}\n#m-background #m-plugins-container > div[actions] {\n  display: flex;\n  position: absolute;\n  top: 1px;\n  right: 0px;\n  height: 1.4rem;\n  border: none;\n}\n#m-background #m-plugins-container > div[actions] > button {\n  font-size: 0.8rem;\n  border: 1px solid #ebebeb;\n  border-bottom: none;\n  margin-top: 0.25rem;\n  background: rgba(184, 184, 184, 0.4);\n  color: #ebebeb;\n}\n#m-background #m-plugins-container > div[actions] > button:not([disabled]):hover {\n  background: #9e9e9e;\n}\n#m-background #m-plugins-container > div[actions] > button:active {\n  background: #ababab;\n}\n#m-background #m-plugins-container #m-plugins {\n  overflow-y: auto;\n}\n#m-background #m-plugins-container #m-plugins > div {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  padding: 0px -2px;\n}\n#m-background #m-plugins-container #m-plugins > div > button {\n  flex: 1;\n  user-select: none;\n  padding: 0.125rem 0.25rem 0px 0.25rem;\n  font-size: 1.2rem;\n  background: none;\n  border: none;\n  text-align: left;\n  border-left: 0px solid transparent;\n  transition: border-left 0.1s;\n}\n#m-background #m-plugins-container #m-plugins > div > button:not([selected]):hover {\n  border-left: 0.5rem solid rgba(143, 143, 143, 0.6);\n  background: rgba(118, 118, 118, 0.6);\n}\n#m-background #m-plugins-container #m-plugins > div > button[selected] {\n  border-left: 0.5rem solid #ebebeb;\n  background: rgba(131, 131, 131, 0.6);\n  color: #ebebeb;\n}\n#m-background #m-plugins-container #m-plugins > div > button[raw] {\n  color: #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > button[raw]:not([selected]):hover {\n  border-left: 0.5rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > button[raw][selected] {\n  border-left: 0.5rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > div {\n  display: none;\n  flex-direction: column;\n  overflow: hidden;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button {\n  flex: 1;\n  user-select: none;\n  padding: 0.125rem 0.25rem 0px 0.25rem;\n  font-size: 1rem;\n  background: none;\n  border: none;\n  text-align: left;\n  border-left: 0.5rem solid #ebebeb;\n  transition: border-left 0.1s;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button:not([selected]):hover {\n  border-left: 1rem solid #ebebeb;\n  background: rgba(118, 118, 118, 0.6);\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[selected] {\n  border-left: 1rem solid #ebebeb;\n  background: rgba(131, 131, 131, 0.6);\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[raw] {\n  color: #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[raw]:not([selected]):hover {\n  border-left: 1rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div > div > button[raw][selected] {\n  border-left: 1rem solid #b8b8b8;\n}\n#m-background #m-plugins-container #m-plugins > div[selected] > div {\n  display: flex;\n}\n#m-background #m-settings-container {\n  flex: 3;\n}\n#m-background #m-settings-container > div[actions] {\n  display: flex;\n  position: absolute;\n  top: 1px;\n  right: 0px;\n  height: 1.4rem;\n  border: none;\n}\n#m-background #m-settings-container > div[actions] > button {\n  font-size: 0.8rem;\n  border: 1px solid #ebebeb;\n  border-bottom: none;\n  margin-top: 0.25rem;\n}\n#m-background #m-settings-container > div[actions] > button[save] {\n  background: rgba(80, 173, 80, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[save]:not([disabled]):hover {\n  background: rgba(97, 182, 97, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[save]:active {\n  background: rgba(114, 190, 114, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[revert] {\n  background: rgba(173, 80, 80, 0.6);\n  border-left: none;\n}\n#m-background #m-settings-container > div[actions] > button[revert]:not([disabled]):hover {\n  background: rgba(182, 97, 97, 0.6);\n}\n#m-background #m-settings-container > div[actions] > button[revert]:active {\n  background: rgba(190, 114, 114, 0.6);\n}\n#m-background #m-settings-container #m-settings {\n  display: flex;\n  position: relative;\n  padding: 0.25rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n#m-background #m-settings-container #m-settings .m-setting {\n  display: flex;\n  overflow: visible;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[left] > label,\n#m-background #m-settings-container #m-settings .m-setting > div[top] > label {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  font-size: 0.8rem;\n  user-select: none;\n  font-family: 'Courier New', Courier, monospace;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[left] > label[friendly],\n#m-background #m-settings-container #m-settings .m-setting > div[top] > label[friendly] {\n  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\n  font-weight: bold;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[left] > span,\n#m-background #m-settings-container #m-settings .m-setting > div[top] > span {\n  font-size: 0.8rem;\n  user-select: none;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=single] div[left],\n#m-background #m-settings-container #m-settings .m-setting[type=action] div[left] {\n  display: flex;\n  padding: 0.25rem 0.25rem;\n  flex-direction: column;\n  flex: 2;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=single] div[right],\n#m-background #m-settings-container #m-settings .m-setting[type=action] div[right] {\n  display: flex;\n  position: relative;\n  padding: 0.25rem 0.25rem;\n  flex: 1;\n  border-left: 1px solid rgba(131, 131, 131, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=single] div[right] > *,\n#m-background #m-settings-container #m-settings .m-setting[type=action] div[right] > * {\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list],\n#m-background #m-settings-container #m-settings .m-setting[type=map] {\n  flex-direction: column;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[top],\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[top] {\n  padding: 0.25rem 0.25rem;\n  display: flex;\n  flex-direction: column;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom],\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] {\n  border: 1px solid #ebebeb;\n  overflow-y: auto;\n  overflow-x: hidden;\n  flex-direction: column;\n  position: relative;\n  margin: 0px 0.25rem 0.25rem 0.25rem;\n  display: flex;\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar {\n  width: 0.6rem;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-track,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-track {\n  background: rgba(105, 105, 105, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-thumb,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-thumb {\n  background: rgba(131, 131, 131, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-thumb:hover,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-thumb:hover {\n  background: rgba(143, 143, 143, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom]::-webkit-scrollbar-thumb:active,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom]::-webkit-scrollbar-thumb:active {\n  background: #ebebeb;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] > *,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] > * {\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] div[entry],\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] div[entry] {\n  position: relative;\n  display: flex;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] div[entry] > input,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] div[entry] > input {\n  flex: 1;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] input,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] input {\n  border: none !important;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] button,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] button {\n  background: rgba(118, 118, 118, 0.6);\n  border: none;\n  font-size: 0.8rem;\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] button:not([disabled]):hover,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] button:not([disabled]):hover {\n  background: rgba(131, 131, 131, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting[type=list] div[bottom] button:active,\n#m-background #m-settings-container #m-settings .m-setting[type=map] div[bottom] button:active {\n  background: rgba(143, 143, 143, 0.6);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input {\n  background: rgba(92, 92, 92, 0.6);\n  border: 1px solid #ebebeb;\n  text-align: center;\n  font-size: 1rem;\n  width: 100%;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[disabled] {\n  color: #b8b8b8;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > input[ensure=\"boolean\"],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > input[ensure=\"boolean\"],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > input[ensure=\"boolean\"] {\n  cursor: pointer;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > div[range],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div[range],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > div[range] {\n  display: flex;\n  flex: 1;\n  position: relative;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > div[range] > input,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div[range] > input,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > div[range] > input {\n  overflow: hidden;\n  -webkit-appearance: none;\n  appearance: none;\n  width: 100%;\n  height: 100%;\n  background: rgba(92, 92, 92, 0.6);\n  outline: none;\n  margin: 0px;\n  border: 1px solid #ebebeb;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > div[range] > input::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div[range] > input::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > div[range] > input::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 0px;\n  height: 100%;\n  box-shadow: -20vw 0 0 20vw rgba(235, 235, 235, 0.4);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > div[range] > input::-webkit-slider-runnable-track,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div[range] > input::-webkit-slider-runnable-track,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > div[range] > input::-webkit-slider-runnable-track {\n  height: 100%;\n  padding: 0px;\n  margin: 0px;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > div[range] > input[edited]::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div[range] > input[edited]::-webkit-slider-thumb,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > div[range] > input[edited]::-webkit-slider-thumb {\n  box-shadow: -20vw 0 0 20vw rgba(255, 196, 0, 0.4);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > div[range] > label[range],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div[range] > label[range],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > div[range] > label[range] {\n  pointer-events: none;\n  display: flex;\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  bottom: 0px;\n  left: 0px;\n  justify-content: center;\n  align-items: center;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button {\n  background: rgba(131, 131, 131, 0.95);\n  border: none;\n  font-size: 1rem;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button:not([disabled]):hover,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button:not([disabled]):hover,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button:not([disabled]):hover {\n  background: rgba(143, 143, 143, 0.95);\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button[disabled],\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button[disabled] {\n  color: #b8b8b8;\n}\n#m-background #m-settings-container #m-settings .m-setting > div[right] > button:active,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > button:active,\n#m-background #m-settings-container #m-settings .m-setting > div[bottom] > div > button:active {\n  background: rgba(156, 156, 156, 0.95) !important;\n}\n#m-background #m-settings-container #m-settings .m-setting:hover {\n  background: rgba(105, 105, 105, 0.6);\n}\n#m-background [edited] {\n  color: #ffc400 !important;\n  border-color: #ffc400 !important;\n}\n#m-background [edited] input {\n  color: #ffc400 !important;\n  border-color: #ffc400 !important;\n}\n#m-background [edited] input::-webkit-slider-thumb {\n  box-shadow: -20vw 0 0 20vw rgba(255, 196, 0, 0.4) !important;\n}\n#m-background [edited] label[range] {\n  color: #ffc400 !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5414,14 +5414,12 @@ var es_array_join = __webpack_require__(9600);
 var es_array_map = __webpack_require__(1249);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.concat.js
 var es_array_concat = __webpack_require__(2222);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
-var es_regexp_exec = __webpack_require__(4916);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
-var es_string_split = __webpack_require__(3123);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
 var es_array_includes = __webpack_require__(6699);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
 var es_string_includes = __webpack_require__(2023);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
+var es_regexp_exec = __webpack_require__(4916);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__(5306);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace-all.js
@@ -5434,6 +5432,8 @@ var es_object_entries = __webpack_require__(9720);
 var es_function_name = __webpack_require__(8309);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
 var es_array_slice = __webpack_require__(7042);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
+var es_string_split = __webpack_require__(3123);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__(1539);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
@@ -5885,10 +5885,6 @@ var NAME_FORMTYPE_MAP = {
 var FORMTYPES = Object.keys(NAME_FORMTYPE_MAP);
 var FORMTYPE_NAME_MAP = reverseMapping(NAME_FORMTYPE_MAP);
 ;// CONCATENATED MODULE: ./ui/js/test-data.js
-var _setting_8_key;
-
-function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /* harmony default export */ const test_data = ({
   "example-settings.txt": {
     "title": "Example Settings",
@@ -5915,18 +5911,18 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "name": "Decimal Setting",
             "desc": "This setting can only be decimals.",
             "type": "decimal",
-            "default": 6.9,
-            "_value": 3.2,
-            "_initialValue": 3.2,
+            "default": 3.2,
+            "_value": 23.4,
+            "_initialValue": 23.4,
             "_friendlyName": true
           },
           "setting_3_decimal_range": {
             "name": "Decimal Range Setting",
             "desc": "This setting can only be a decimal in a valid range.",
             "type": "decimalrange:0.1,9.9,0.1",
-            "default": 5.2,
-            "_value": 5.2,
-            "_initialValue": 5.2,
+            "default": 5.0,
+            "_value": 7.5,
+            "_initialValue": 7.5,
             "_friendlyName": true
           },
           "setting_4_formid": {
@@ -5934,8 +5930,8 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "desc": "This setting can only be a valid FormID.",
             "type": "formid",
             "default": 622440,
-            "_value": 622440,
-            "_initialValue": 622440,
+            "_value": 622432,
+            "_initialValue": 622432,
             "_friendlyName": true
           },
           "setting_5_formtype": {
@@ -5943,8 +5939,8 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "desc": "This setting can only be a valid FormType",
             "type": "formtype",
             "default": 42,
-            "_value": 42,
-            "_initialValue": 42,
+            "_value": 46,
+            "_initialValue": 46,
             "_friendlyName": true
           },
           "setting_6_integer": {
@@ -5952,8 +5948,8 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "desc": "This setting can only be an integer (whole number).",
             "type": "integer",
             "default": 225,
-            "_value": 225,
-            "_initialValue": 225,
+            "_value": 232,
+            "_initialValue": 232,
             "_friendlyName": true
           }
         }
@@ -5966,32 +5962,35 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "desc": "This setting can only be an integer in a valid range.",
             "type": "integerrange:0,100,10",
             "default": 10,
-            "_value": 10,
-            "_initialValue": 10,
+            "_value": 20,
+            "_initialValue": 20,
             "_friendlyName": true
           },
-          "setting_8_key": (_setting_8_key = {
+          "setting_8_key": {
             "name": "Key Setting",
             "desc": "This setting can only be a keybind.",
             "type": "key",
-            "_value": 27
-          }, test_data_defineProperty(_setting_8_key, "_value", 27), test_data_defineProperty(_setting_8_key, "_initialValue", 27), test_data_defineProperty(_setting_8_key, "_friendlyName", true), _setting_8_key),
+            "default": 27,
+            "_value": 29,
+            "_initialValue": 29,
+            "_friendlyName": true
+          },
           "setting_9_list": {
-            "name": "List of FormType Setting",
-            "desc": "This setting can only be a list of FormTypes.",
-            "type": "list:formtype",
-            "default": [43],
-            "_value": [43],
-            "_initialValue": [43],
+            "name": "List of RGBY Setting",
+            "desc": "This setting can only be a list of Red, Green, Blue, and Yellow.",
+            "type": "list:values:Red,Green,Blue,Yellow",
+            "default": ["Red", "Green", "Blue", "Yellow"],
+            "_value": ["Green", "Red", "Blue", "Yellow"],
+            "_initialValue": ["Green", "Red", "Blue", "Yellow"],
             "_friendlyName": true
           },
           "setting_10_map": {
-            "name": "Map of String to Integer Setting",
-            "desc": "This setting can only be a map of strings to integers.",
-            "type": "map:string,integer",
-            "default": [["Apple", 24], ["Banana", 54]],
-            "_value": [["Apple", 24], ["Banana", 54]],
-            "_initialValue": [["Apple", 24], ["Banana", 54]],
+            "name": "Map of FormType to IntegerRange Setting",
+            "desc": "This setting can only be a map of FormTypes to integers from 0 to 10.",
+            "type": "map:formtype,integerrange:0,10",
+            "default": [[42, 2], [43, 3]],
+            "_value": [[42, 1], [43, 4], [44, 7]],
+            "_initialValue": [[42, 1], [43, 4], [44, 7]],
             "_friendlyName": true
           },
           "setting_11_number": {
@@ -5999,17 +5998,17 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "desc": "This setting can only be a valid number.",
             "type": "number",
             "default": 42.32,
-            "_value": 42.32,
-            "_initialValue": 42.32,
+            "_value": 23.125,
+            "_initialValue": 23.125,
             "_friendlyName": true
           },
           "setting_12_string": {
             "name": "String Setting",
             "desc": "This setting can only be a valid string.",
             "type": "string",
-            "default": "42",
-            "_value": "42",
-            "_initialValue": "42",
+            "default": "42 can be a string",
+            "_value": "Hello World!",
+            "_initialValue": "Hello World!",
             "_friendlyName": true
           },
           "setting_13_values": {
@@ -6017,8 +6016,8 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
             "desc": "This setting can only be Apple, Banana, or Pear of Destruction.",
             "type": "values:Apple,Banana,Pear of Destruction",
             "default": "Apple",
-            "_value": "Apple",
-            "_initialValue": "Apple",
+            "_value": "Banana",
+            "_initialValue": "Banana",
             "_friendlyName": true
           }
         }
@@ -6028,14 +6027,28 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
   "raw-settings.txt": {
     "title": "raw-settings.txt",
     "categories": {
-      "category_a": {
-        "title": "A",
+      "category_detected": {
+        "title": "Detected Settings",
         "settings": {
+          "setting_1_boolean": {
+            "name": "setting_1_boolean",
+            "type": "boolean",
+            "_value": true,
+            "_initialValue": true,
+            "_friendlyName": false
+          },
           "setting_11_number": {
             "name": "setting_11_number",
             "type": "number",
             "_value": 42.32,
             "_initialValue": 42.32,
+            "_friendlyName": false
+          },
+          "setting_12_string": {
+            "name": "setting_12_string",
+            "type": "string",
+            "_value": "Hello World!",
+            "_initialValue": "Hello World!",
             "_friendlyName": false
           }
         }
@@ -6044,11 +6057,19 @@ function test_data_defineProperty(obj, key, value) { if (key in obj) { Object.de
   }
 });
 ;// CONCATENATED MODULE: ./ui/rykz-spcm.js
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -6095,15 +6116,15 @@ var pluginTemplate = function pluginTemplate(index, name, categoryList, edited, 
 };
 
 var settingTemplate = function settingTemplate(path, name, desc, type, defaultValue, value, friendlyName, edited) {
-  var splitted = type.split(':');
-  var ensureType = splitted[0];
-  var ensureVariables = splitted[1];
+  var _dataTypeExtraction = dataTypeExtraction(type),
+      _dataTypeExtraction2 = _slicedToArray(_dataTypeExtraction, 2),
+      ensureType = _dataTypeExtraction2[0],
+      ensureVariables = _dataTypeExtraction2[1];
+
   if (TYPES_LEFT_RIGHT.includes(ensureType)) return "\n      <div id=\"m-setting-".concat(path.replaceAll(',', '-'), "\" class=\"m-setting\" type=\"").concat(ensureType == 'action' ? 'action' : 'single', "\">\n        <div left>\n          <label").concat(friendlyName ? ' friendly' : '', ">").concat(name, "</label>\n          <span>").concat(desc || '', "</span>\n        </div>\n        <div right>\n          ").concat(inputTemplate(path, ensureType, ensureVariables, value, defaultValue, edited), "\n        </div>\n      </div>\n    ");else if (TYPES_TOP_DOWN.includes(ensureType)) return "\n      <div id=\"m-setting-".concat(path.replaceAll(',', '-'), "\" class=\"m-setting\" type=\"").concat(ensureType, "\">\n        <div top>\n          <label").concat(friendlyName ? ' friendly' : '', ">").concat(name, "</label>\n          <span>").concat(desc || '', "</span>\n        </div>\n        <div bottom>\n          ").concat(inputTemplate(path, ensureType, ensureVariables, value, defaultValue, edited), "\n        </div>\n      </div>\n    ");
 };
 
 var inputTemplate = function inputTemplate(path, ensureType, ensureVariables, value, defaultValue, edited) {
-  ensureVariables = ensureVariables ? ensureVariables.split(',') : [];
-
   switch (ensureType) {
     case 'number':
     case 'string':
@@ -6114,11 +6135,11 @@ var inputTemplate = function inputTemplate(path, ensureType, ensureVariables, va
     case 'formtype':
     case 'values':
     case 'key':
-      return "\n        <input \n            path=\"".concat(path, "\" \n            ").concat(defaultValue !== undefined ? 'default="' + convertToDisplay(defaultValue, ensureType) + '"' : '', "\n            ").concat(edited ? 'edited' : '', " \n            value=\"").concat(convertToDisplay(value, ensureType), "\" \n            ensure=\"").concat(ensureType).concat(ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : '', "\" \n            disabled\n          />");
+      return "\n        <input \n          path=\"".concat(path, "\" \n          ").concat(defaultValue !== undefined ? 'default="' + convertToDisplay(defaultValue, ensureType) + '"' : '', "\n          ").concat(edited ? 'edited' : '', " \n          value=\"").concat(convertToDisplay(value, ensureType), "\" \n          ensure=\"").concat(ensureType).concat(ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : '', "\" \n          spellcheck=\"false\"\n          disabled\n        />\n      ");
 
     case 'decimalrange':
     case 'integerrange':
-      return "\n        <input \n          type=\"range\" \n          path=\"".concat(path, "\" \n          min=\"").concat(ensureVariables[0], "\" \n          max=\"").concat(ensureVariables[1], "\"\n          ").concat(ensureVariables[2] ? 'step="' + ensureVariables[2] + '"' : '', " \n          ").concat(defaultValue !== undefined ? 'default="' + convertToDisplay(defaultValue, ensureType) + '"' : '', " \n          ").concat(edited ? ' edited' : '', " \n          value=\"").concat(convertToDisplay(value, ensureType), "\" \n          ensure=\"").concat(ensureType).concat(ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : '', "\" \n          disabled\n        />\n        <label range\n          ").concat(edited ? ' edited' : '', " \n        >\n          ").concat(convertToDisplay(value, ensureType), "\n        </label>\n      ");
+      return "\n        <div range>\n          <input \n            type=\"range\" \n            path=\"".concat(path, "\" \n            min=\"").concat(ensureVariables[0], "\" \n            max=\"").concat(ensureVariables[1], "\"\n            ").concat(ensureVariables[2] ? 'step="' + ensureVariables[2] + '"' : '', " \n            ").concat(defaultValue !== undefined ? 'default="' + convertToDisplay(defaultValue, ensureType) + '"' : '', " \n            ").concat(edited ? ' edited' : '', " \n            value=\"").concat(convertToDisplay(value, ensureType), "\" \n            ensure=\"").concat(ensureType).concat(ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : '', "\" \n            spellcheck=\"false\"\n            disabled\n          />\n          <label range\n            ").concat(edited ? ' edited' : '', " \n          >\n            ").concat(convertToDisplay(value, ensureType), "\n          </label>\n        </div>\n      ");
 
     case 'action':
       return "\n        <button \n          path=\"".concat(path, "\" \n          ensure=\"").concat(ensureType).concat(ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : '', "\" \n          disabled\n        >\n          ").concat(ensureVariables[0], "\n        </button>");
@@ -6128,9 +6149,24 @@ var inputTemplate = function inputTemplate(path, ensureType, ensureVariables, va
       var inputHTML = '';
       if (value) for (var i = 0; i < value.length; i++) {
         if (ensureType == 'list') {
-          inputHTML += "\n            <div entry>\n              ".concat(inputTemplate("".concat(path, ",").concat(i), ensureVariables[0], '', value[i], defaultValue ? defaultValue[i] : undefined), "\n              <button path=\"").concat(path, ",").concat(i, "\" delete-button>&times;</button>\n            </div>");
+          var _dataTypeExtraction3 = dataTypeExtraction(ensureVariables[0]),
+              _dataTypeExtraction4 = _slicedToArray(_dataTypeExtraction3, 2),
+              childEnsureType = _dataTypeExtraction4[0],
+              childEnsureVariables = _dataTypeExtraction4[1];
+
+          inputHTML += "\n            <div entry>\n              ".concat(inputTemplate("".concat(path, ",").concat(i), childEnsureType, childEnsureVariables, value[i], defaultValue ? defaultValue[i] : undefined), "\n              <button path=\"").concat(path, ",").concat(i, "\" delete-button>&times;</button>\n            </div>");
         } else {
-          inputHTML += "\n            <div entry>\n              ".concat(inputTemplate("".concat(path, ",").concat(i, ",0"), ensureVariables[0], '', value[i][0], defaultValue && defaultValue[i] ? defaultValue[i][0] : undefined), "\n              ").concat(inputTemplate("".concat(path, ",").concat(i, ",1"), ensureVariables[1], '', value[i][1], defaultValue && defaultValue[i] ? defaultValue[i][1] : undefined), "\n              <button path=\"").concat(path, ",").concat(i, "\" delete-button>&times;</button>\n            </div>\n          ");
+          var _dataTypeExtraction5 = dataTypeExtraction(ensureVariables[0]),
+              _dataTypeExtraction6 = _slicedToArray(_dataTypeExtraction5, 2),
+              child0EnsureType = _dataTypeExtraction6[0],
+              child0EnsureVariables = _dataTypeExtraction6[1];
+
+          var _dataTypeExtraction7 = dataTypeExtraction(ensureVariables[1]),
+              _dataTypeExtraction8 = _slicedToArray(_dataTypeExtraction7, 2),
+              child1EnsureType = _dataTypeExtraction8[0],
+              child1EnsureVariables = _dataTypeExtraction8[1];
+
+          inputHTML += "\n            <div entry>\n              ".concat(inputTemplate("".concat(path, ",").concat(i, ",0"), child0EnsureType, child0EnsureVariables, value[i][0], defaultValue && defaultValue[i] ? defaultValue[i][0] : undefined), "\n              ").concat(inputTemplate("".concat(path, ",").concat(i, ",1"), child1EnsureType, child1EnsureVariables, value[i][1], defaultValue && defaultValue[i] ? defaultValue[i][1] : undefined), "\n              <button path=\"").concat(path, ",").concat(i, "\" delete-button>&times;</button>\n            </div>\n          ");
         }
       }
       inputHTML += "<button path=\"".concat(path, "\" append-button>+</button>");
@@ -6276,6 +6312,36 @@ window.dataHideFilterButton = dataHideFilterButton;
 
 function dataHideFilterButton() {
   mToggleSPCMOnly.setAttribute('hidden', '');
+}
+
+window.dataTypeExtraction = dataTypeExtraction;
+
+function dataTypeExtraction(type) {
+  var initialParts = type.split(':');
+  var ensureType = initialParts[0];
+  var ensureVariables = [];
+
+  if (initialParts.length == 2) {
+    ensureVariables = initialParts[1].split(',');
+  } else if (ensureType == 'list') {
+    ensureVariables = [initialParts.slice(1).join(':')];
+  } else if (ensureType == 'map') {
+    var rightParts = initialParts.slice(1).join(':').split(',');
+
+    if (rightParts[0].includes(':')) {
+      var endIndex = 1;
+
+      while (endIndex < rightParts.length - 1 && !rightParts[endIndex].includes(':')) {
+        endIndex++;
+      }
+
+      ensureVariables = [rightParts.slice(0, endIndex).join(','), rightParts.slice(endIndex).join(',')];
+    } else {
+      ensureVariables = [rightParts[0], rightParts.slice(1).join(',')];
+    }
+  }
+
+  return [ensureType, ensureVariables];
 } ////////// LINKING FUNCTIONS
 
 
@@ -6312,9 +6378,12 @@ function linkStart(htmlElement) {
           }
 
           if (!ensure) return "continue";
-          var parts = ensure.split(':');
-          var ensureType = parts[0];
-          var ensureVariables = parts[1] ? parts[1].split(',') : [];
+
+          var _dataTypeExtraction9 = dataTypeExtraction(ensure),
+              _dataTypeExtraction10 = _slicedToArray(_dataTypeExtraction9, 2),
+              ensureType = _dataTypeExtraction10[0],
+              ensureVariables = _dataTypeExtraction10[1];
+
           element.removeAttribute('disabled'); // input customization and validation
 
           switch (ensureType) {
@@ -6534,7 +6603,10 @@ function dataPathSet(dataPath, property, value) {
   var settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
   var setting = data[dataKey].categories[categoryKey].settings[settingsKey];
   var settingDataPath = "".concat(parts[0], ",").concat(parts[1], ",").concat(parts[2]);
-  var ensureType = setting['type'].split(':')[0];
+
+  var _dataTypeExtraction11 = dataTypeExtraction(setting['type']),
+      _dataTypeExtraction12 = _slicedToArray(_dataTypeExtraction11, 1),
+      ensureType = _dataTypeExtraction12[0];
 
   if (property != '_value' && property != '_initialValue') {
     setting[property] = value;
@@ -6609,7 +6681,11 @@ function dataPathAppendLast(dataPath) {
   var categoryKey = categoryKeys[parts[0]][parts[1]];
   var settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
   var setting = data[dataKey].categories[categoryKey].settings[settingsKey];
-  var ensureType = setting['type'].split(':')[0];
+
+  var _dataTypeExtraction13 = dataTypeExtraction(setting['type']),
+      _dataTypeExtraction14 = _slicedToArray(_dataTypeExtraction13, 1),
+      ensureType = _dataTypeExtraction14[0];
+
   if (!['list', 'map'].includes(ensureType)) return;
   setting['_value'].push(ensureType == 'list' ? null : [null, null]);
   var loadedParts = loadedDataPath.split(',');
@@ -6627,7 +6703,11 @@ function dataPathDeleteRow(dataPath) {
   var categoryKey = categoryKeys[parts[0]][parts[1]];
   var settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
   var setting = data[dataKey].categories[categoryKey].settings[settingsKey];
-  var ensureType = setting['type'].split(':')[0];
+
+  var _dataTypeExtraction15 = dataTypeExtraction(setting['type']),
+      _dataTypeExtraction16 = _slicedToArray(_dataTypeExtraction15, 1),
+      ensureType = _dataTypeExtraction16[0];
+
   if (!['list', 'map'].includes(ensureType)) return;
   setting['_value'].splice(parts[3], 1);
   var loadedParts = loadedDataPath.split(',');
@@ -6654,15 +6734,35 @@ function dataPathElement(dataPath) {
       case 3:
         // single input / button
         var setting = f("m-setting-".concat(parts[0], "-").concat(parts[1], "-").concat(parts[2]));
-        if (setting.children[1].hasAttribute('bottom')) return setting.children[1];else return setting.children[1].children[0];
+        var inputDiv = setting.children[1];
+        if (inputDiv && inputDiv.hasAttribute('bottom')) return inputDiv;
+        var supposedSingleInput = inputDiv.children[0];
+
+        if (supposedSingleInput.tagName != 'INPUT') {
+          return supposedSingleInput.getElementsByTagName('input')[0];
+        } else {
+          return supposedSingleInput;
+        }
 
       case 4:
         // list input
-        return f("m-setting-".concat(parts[0], "-").concat(parts[1], "-").concat(parts[2])).children[1].children[parts[3]];
+        var supposedListInput = f("m-setting-".concat(parts[0], "-").concat(parts[1], "-").concat(parts[2])).children[1].children[parts[3]];
+
+        if (supposedListInput.tagName != 'INPUT') {
+          return supposedListInput.getElementsByTagName('input')[0];
+        } else {
+          return supposedListInput;
+        }
 
       case 5:
         // map input
-        return f("m-setting-".concat(parts[0], "-").concat(parts[1], "-").concat(parts[2])).children[1].children[parts[3]][parts[4]];
+        var supposedMapInput = f("m-setting-".concat(parts[0], "-").concat(parts[1], "-").concat(parts[2])).children[1].children[parts[3]].children[parts[4]];
+
+        if (supposedMapInput.tagName != 'INPUT') {
+          return supposedMapInput.getElementsByTagName('input')[0];
+        } else {
+          return supposedMapInput;
+        }
 
       default:
         return undefined;
@@ -6804,9 +6904,11 @@ function convertToValue(display) {
   if (display === null || display === undefined) return display;
 
   switch (ensureType) {
+    case "integerrange":
     case "integer":
       return parseInt(display);
 
+    case "decimalrange":
     case "decimal":
     case "number":
       return parseFloat(display);
@@ -6916,7 +7018,11 @@ function elementMarkEdited(htmlElement) {
   if (!htmlElement) return;
   htmlElement.toggleAttribute('edited', edited);
   var type = htmlElement.getAttribute('ensure');
-  var ensureType = type ? htmlElement.getAttribute('ensure').split(':')[0] : null; // mark additional elements for certain types
+
+  var _ref = type ? dataTypeExtraction(htmlElement.getAttribute('ensure')) : [null],
+      _ref2 = _slicedToArray(_ref, 1),
+      ensureType = _ref2[0]; // mark additional elements for certain types
+
 
   switch (ensureType) {
     case 'decimalrange':
@@ -6929,7 +7035,11 @@ function elementSetValue(htmlElement, value) {
   if (!htmlElement) return;
   htmlElement.value = value;
   var type = htmlElement.getAttribute('ensure');
-  var ensureType = type ? htmlElement.getAttribute('ensure').split(':')[0] : null; // set additional values for certain types
+
+  var _ref3 = type ? dataTypeExtraction(htmlElement.getAttribute('ensure')) : [null],
+      _ref4 = _slicedToArray(_ref3, 1),
+      ensureType = _ref4[0]; // set additional values for certain types
+
 
   switch (ensureType) {
     case 'decimalrange':
@@ -6975,15 +7085,9 @@ function applyAutoComplete(inputElement, values) {
       parent = parent.parentElement;
     }
 
-    if (window.skyrimPlatform) {
-      dropdown.style.top = offsetTop + this.offsetHeight - 1 + 'px';
-      dropdown.style.left = offsetLeft + 'px';
-    } else {
-      dropdown.style.top = offsetTop + this.offsetHeight - 2 + 'px';
-      dropdown.style.left = offsetLeft + 1 + 'px';
-    }
-
-    dropdown.style.width = this.offsetWidth - 2 + 'px';
+    dropdown.style.top = offsetTop + this.offsetHeight - 1 + 'px';
+    dropdown.style.left = offsetLeft + 'px';
+    dropdown.style.width = this.offsetWidth + 'px';
     var searchResult = this.value != '' ? values.filter(function (value) {
       return value.toLowerCase().startsWith(_this.value.toLowerCase());
     }) : values;
@@ -7011,7 +7115,12 @@ function applyAutoComplete(inputElement, values) {
       _iterator4.f();
     }
 
-    dropdown.removeAttribute('hidden');
+    if (searchResult.length == 0) {
+      dropdown.appendChild(elementFromHTML('<label>No matching value!</label>'));
+    }
+
+    dropdown.toggleAttribute('nomatch', searchResult.length == 0);
+    dropdown.toggleAttribute('hidden', dropdown.innerHTML == '');
   });
   inputElement.addEventListener('blur', function () {
     dropdown.innerHTML = '';
