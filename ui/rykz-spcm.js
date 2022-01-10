@@ -882,7 +882,7 @@ function contextMenuOpen(event) {
   mContextMenu.removeAttribute('hidden');
   mContextMenu.children[0].toggleAttribute('hidden', !dataPathGet(selectedDataPath, '_edited'));
   const defaultValue = dataPathGet(selectedDataPath, 'default');
-  mContextMenu.children[1].toggleAttribute('hidden', defaultValue === undefined || defaultValue === dataPathGet(selectedDataPath, '_value'));
+  mContextMenu.children[1].toggleAttribute('hidden', defaultValue === undefined || simpleEqual(defaultValue, dataPathGet(selectedDataPath, '_value')));
 }
 
 function contextMenuClose() {
