@@ -6975,8 +6975,14 @@ function applyAutoComplete(inputElement, values) {
       parent = parent.parentElement;
     }
 
-    dropdown.style.top = offsetTop + this.offsetHeight + 'px';
-    dropdown.style.left = offsetLeft + 1 + 'px';
+    if (window.skyrimPlatform) {
+      dropdown.style.top = offsetTop + this.offsetHeight - 1 + 'px';
+      dropdown.style.left = offsetLeft + 'px';
+    } else {
+      dropdown.style.top = offsetTop + this.offsetHeight - 2 + 'px';
+      dropdown.style.left = offsetLeft + 1 + 'px';
+    }
+
     dropdown.style.width = this.offsetWidth - 2 + 'px';
     var searchResult = this.value != '' ? values.filter(function (value) {
       return value.toLowerCase().startsWith(_this.value.toLowerCase());
