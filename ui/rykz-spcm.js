@@ -176,7 +176,6 @@ function dataSet(dataURIComponent) {
       settingsKeys[i][j] = Object.keys(data[dataKeys[i]].categories[categoryKeys[i][j]].settings);
     }
   }
-  console.log(data);
   dataRefresh();
 }
 
@@ -945,15 +944,21 @@ function applyAutoComplete(inputElement, values) {
       offsetLeft += parent.offsetLeft;
       parent = parent.parentElement;
     }
-    dropdown.style.top = offsetTop + this.offsetHeight + 'px';
-    dropdown.style.left = offsetLeft + 'px';
-    dropdown.style.width = this.offsetWidth + 'px';
+    dropdown.style.top = (offsetTop + this.offsetHeight) + 'px';
+    dropdown.style.left = (offsetLeft + 1) + 'px';
+    dropdown.style.width = (this.offsetWidth - 2) + 'px';
 
     const searchResult = this.value != '' ? values.filter((value) => value.toLowerCase().startsWith(this.value.toLowerCase())) : values;
     dropdown.innerHTML = '';
     for (const result of searchResult) {
-      const button = elementFromHTML(`
-        <button>${result}</button>
+      const button = elementFromHTML(this.value != '' ? `
+        <button>
+          ${result.slice(0,this.value.length)}<span>${result.slice(this.value.length)}</span>
+        </button>
+      ` : `
+        <button>
+          ${result}
+        </button>
       `)
       button.addEventListener('mousedown', ()=>{this.value = button.innerText});
       dropdown.appendChild(button);

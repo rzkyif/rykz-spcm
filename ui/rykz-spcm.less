@@ -106,40 +106,44 @@
   flex-direction: column;
   position: absolute;
   border: 1px solid @colors[c-text];
+  border-top: none;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 5rem;
+  max-height: 5.1rem;
   z-index: 100;
 
   & > button {
     flex: 1;
-    background: @colors[c-base-ddd];
+    background: fadein(@colors[c-base-ll], 35%);
     border: none;
-    white-space: nowrap;
     font-size: @sizes[v-medium];
     z-index: 100;
 
+    & > span {
+      color: @colors[c-text-muted];
+    }
+
     &:hover {
-      background: @colors[c-base-dd];
+      background: fadein(@colors[c-base-lll], 35%);
     }
 
     &:active {
-      background: @colors[c-base-d];
+      background: fadein(@colors[c-base-llll], 35%);
     }
   }
 
   &::-webkit-scrollbar {
-    width: @sizes[v-smaller];
+    width: @distances[v-base-l];
   }
   
   &::-webkit-scrollbar-track {
-    background: @colors[c-base];
+    background: fadein(@colors[c-base-ll], 35%);
   }
   
   &::-webkit-scrollbar-thumb {
-    background: @colors[c-base-ll];
+    background: fadein(@colors[c-base-llll], 35%);
     &:hover {
-      background: @colors[c-base-lll];
+      background: fadein(@colors[c-base-lllll], 35%);
     }
     &:active {
       background: @colors[c-text];
@@ -465,7 +469,7 @@
         }
 
         // input styles
-        & > div, & > div > div {
+        & > div[right], & > div[bottom], & > div[bottom] > div {
           // normal inputs
           & > input {
             background: @colors[c-base-d];
