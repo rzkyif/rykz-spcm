@@ -37,9 +37,7 @@ const pluginTemplate = (index, name, categoryList, edited, raw) => {
 }
 
 const settingTemplate = (path, name, desc, type, defaultValue, value, friendlyName, edited) => {
-  const splitted = type.split(':');
-  const ensureType = splitted[0]
-  const ensureVariables = splitted[1];
+  const [ensureType, ensureVariables] = dataTypeExtraction(type)
   if (TYPES_LEFT_RIGHT.includes(ensureType))
     return `
       <div id="m-setting-${path.replaceAll(',','-')}" class="m-setting" type="${ensureType=='action'?'action':'single'}">
@@ -67,7 +65,6 @@ const settingTemplate = (path, name, desc, type, defaultValue, value, friendlyNa
 }
 
 const inputTemplate = (path, ensureType, ensureVariables, value, defaultValue, edited) => {
-  ensureVariables = ensureVariables ? ensureVariables.split(',') : [];
   switch (ensureType) {
     case 'number':
     case 'string':
@@ -80,33 +77,38 @@ const inputTemplate = (path, ensureType, ensureVariables, value, defaultValue, e
     case 'key':
       return `
         <input 
-            path="${path}" 
-            ${defaultValue !== undefined ? 'default="'+convertToDisplay(defaultValue, ensureType)+'"' : ''}
-            ${edited ? 'edited' : ''} 
-            value="${convertToDisplay(value, ensureType)}" 
-            ensure="${ensureType}${ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : ''}" 
-            disabled
-          />`
+          path="${path}" 
+          ${defaultValue !== undefined ? 'default="'+convertToDisplay(defaultValue, ensureType)+'"' : ''}
+          ${edited ? 'edited' : ''} 
+          value="${convertToDisplay(value, ensureType)}" 
+          ensure="${ensureType}${ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : ''}" 
+          spellcheck="false"
+          disabled
+        />
+      `
     case 'decimalrange':
     case 'integerrange':
       return `
-        <input 
-          type="range" 
-          path="${path}" 
-          min="${ensureVariables[0]}" 
-          max="${ensureVariables[1]}"
-          ${ensureVariables[2] ? 'step="'+ensureVariables[2]+'"' : ''} 
-          ${defaultValue !== undefined ? 'default="'+convertToDisplay(defaultValue, ensureType)+'"' : ''} 
-          ${edited ? ' edited' : ''} 
-          value="${convertToDisplay(value, ensureType)}" 
-          ensure="${ensureType}${ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : ''}" 
-          disabled
-        />
-        <label range
-          ${edited ? ' edited' : ''} 
-        >
-          ${convertToDisplay(value, ensureType)}
-        </label>
+        <div range>
+          <input 
+            type="range" 
+            path="${path}" 
+            min="${ensureVariables[0]}" 
+            max="${ensureVariables[1]}"
+            ${ensureVariables[2] ? 'step="'+ensureVariables[2]+'"' : ''} 
+            ${defaultValue !== undefined ? 'default="'+convertToDisplay(defaultValue, ensureType)+'"' : ''} 
+            ${edited ? ' edited' : ''} 
+            value="${convertToDisplay(value, ensureType)}" 
+            ensure="${ensureType}${ensureVariables.length > 0 ? ':' + ensureVariables.join(',') : ''}" 
+            spellcheck="false"
+            disabled
+          />
+          <label range
+            ${edited ? ' edited' : ''} 
+          >
+            ${convertToDisplay(value, ensureType)}
+          </label>
+        </div>
       `;
     case 'action':
       return `
@@ -122,16 +124,19 @@ const inputTemplate = (path, ensureType, ensureVariables, value, defaultValue, e
       let inputHTML = '';
       if (value) for (let i = 0; i < value.length; i++) {
         if (ensureType == 'list') {
+          const [childEnsureType, childEnsureVariables] = dataTypeExtraction(ensureVariables[0]);
           inputHTML += `
             <div entry>
-              ${inputTemplate(`${path},${i}`, ensureVariables[0], '', value[i], defaultValue ? defaultValue[i] : undefined)}
+              ${inputTemplate(`${path},${i}`, childEnsureType, childEnsureVariables, value[i], defaultValue ? defaultValue[i] : undefined)}
               <button path="${path},${i}" delete-button>&times;</button>
             </div>`
         } else {
+          const [child0EnsureType, child0EnsureVariables] = dataTypeExtraction(ensureVariables[0]);
+          const [child1EnsureType, child1EnsureVariables] = dataTypeExtraction(ensureVariables[1]);
           inputHTML += `
             <div entry>
-              ${inputTemplate(`${path},${i},0`, ensureVariables[0], '', value[i][0], defaultValue && defaultValue[i] ? defaultValue[i][0] : undefined)}
-              ${inputTemplate(`${path},${i},1`, ensureVariables[1], '', value[i][1], defaultValue && defaultValue[i] ? defaultValue[i][1] : undefined)}
+              ${inputTemplate(`${path},${i},0`, child0EnsureType, child0EnsureVariables, value[i][0], defaultValue && defaultValue[i] ? defaultValue[i][0] : undefined)}
+              ${inputTemplate(`${path},${i},1`, child1EnsureType, child1EnsureVariables, value[i][1], defaultValue && defaultValue[i] ? defaultValue[i][1] : undefined)}
               <button path="${path},${i}" delete-button>&times;</button>
             </div>
           `;
@@ -272,6 +277,30 @@ function dataHideFilterButton() {
   mToggleSPCMOnly.setAttribute('hidden', '');
 }
 
+window.dataTypeExtraction = dataTypeExtraction;
+function dataTypeExtraction(type) {
+  const initialParts = type.split(':');
+  const ensureType = initialParts[0];
+  let ensureVariables = [];
+  if (initialParts.length == 2) {
+    ensureVariables = initialParts[1].split(',');
+  } else if (ensureType == 'list') {
+    ensureVariables = [initialParts.slice(1).join(':')]
+  } else if (ensureType == 'map') {
+    const rightParts = initialParts.slice(1).join(':').split(',');
+    if (rightParts[0].includes(':')) {
+      let endIndex = 1;
+      while (endIndex < rightParts.length-1 && !rightParts[endIndex].includes(':')) {
+        endIndex++;
+      }
+      ensureVariables = [rightParts.slice(0,endIndex).join(','), rightParts.slice(endIndex).join(',')];
+    } else {
+      ensureVariables = [rightParts[0], rightParts.slice(1).join(',')];
+    }
+  }
+  return [ensureType, ensureVariables];
+}
+
 ////////// LINKING FUNCTIONS
 
 function linkStart(htmlElement) {
@@ -298,9 +327,7 @@ function linkStart(htmlElement) {
 
       if (!ensure) continue;
 
-      const parts = ensure.split(':');
-      const ensureType = parts[0];
-      const ensureVariables = parts[1] ? parts[1].split(',') : [];
+      const [ensureType, ensureVariables] = dataTypeExtraction(ensure);
 
       element.removeAttribute('disabled');
 
@@ -548,7 +575,7 @@ function dataPathSet(dataPath, property, value, setElementValue=false) {
   const settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
   const setting = data[dataKey].categories[categoryKey].settings[settingsKey]
   const settingDataPath = `${parts[0]},${parts[1]},${parts[2]}`;
-  const ensureType = setting['type'].split(':')[0];
+  const [ensureType] = dataTypeExtraction(setting['type']);
 
   if (property != '_value' && property != '_initialValue') {
     setting[property] = value;
@@ -629,7 +656,7 @@ function dataPathAppendLast(dataPath) {
   const settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
 
   const setting = data[dataKey].categories[categoryKey].settings[settingsKey];
-  const ensureType = setting['type'].split(':')[0]
+  const [ensureType] = dataTypeExtraction(setting['type'])
 
   if (!['list', 'map'].includes(ensureType)) return;
 
@@ -651,7 +678,7 @@ function dataPathDeleteRow(dataPath) {
   const settingsKey = settingsKeys[parts[0]][parts[1]][parts[2]];
 
   const setting = data[dataKey].categories[categoryKey].settings[settingsKey];
-  const ensureType = setting['type'].split(':')[0]
+  const [ensureType] = dataTypeExtraction(setting['type'])
 
   if (!['list', 'map'].includes(ensureType)) return;
 
@@ -674,14 +701,34 @@ function dataPathElement(dataPath) {
         return f(`m-plugin-${parts[0]}`).children[1].children[parts[1]];
       case 3: // single input / button
         const setting = f(`m-setting-${parts[0]}-${parts[1]}-${parts[2]}`);
-        if (setting.children[1].hasAttribute('bottom'))
-          return setting.children[1];
-        else
-          return setting.children[1].children[0];
+        const inputDiv = setting.children[1]
+
+        if (inputDiv && inputDiv.hasAttribute('bottom'))
+          return inputDiv;
+
+        const supposedSingleInput = inputDiv.children[0]
+
+        if (supposedSingleInput.tagName != 'INPUT') {
+          return supposedSingleInput.getElementsByTagName('input')[0];
+        } else {
+          return supposedSingleInput;
+        }
       case 4: // list input
-        return f(`m-setting-${parts[0]}-${parts[1]}-${parts[2]}`).children[1].children[parts[3]];
+        const supposedListInput = f(`m-setting-${parts[0]}-${parts[1]}-${parts[2]}`).children[1].children[parts[3]];
+        
+        if (supposedListInput.tagName != 'INPUT') {
+          return supposedListInput.getElementsByTagName('input')[0];
+        } else {
+          return supposedListInput;
+        }
       case 5: // map input
-        return f(`m-setting-${parts[0]}-${parts[1]}-${parts[2]}`).children[1].children[parts[3]][parts[4]];
+        const supposedMapInput = f(`m-setting-${parts[0]}-${parts[1]}-${parts[2]}`).children[1].children[parts[3]].children[parts[4]];
+        
+        if (supposedMapInput.tagName != 'INPUT') {
+          return supposedMapInput.getElementsByTagName('input')[0];
+        } else {
+          return supposedMapInput;
+        }
       default:
         return undefined;
     }
@@ -794,8 +841,10 @@ function convertToDisplay(value, ensureType=null) {
 function convertToValue(display, ensureType=null) {
   if (display === null || display === undefined) return display;
   switch (ensureType) {
+    case "integerrange":
     case "integer":
       return parseInt(display);
+    case "decimalrange":
     case "decimal":
     case "number":
       return parseFloat(display);
@@ -888,7 +937,7 @@ function elementMarkEdited(htmlElement, edited=true) {
   if (!htmlElement) return;
   htmlElement.toggleAttribute('edited', edited);
   const type = htmlElement.getAttribute('ensure');
-  const ensureType = type ? htmlElement.getAttribute('ensure').split(':')[0] : null;
+  const [ensureType] = type ? dataTypeExtraction(htmlElement.getAttribute('ensure')) : [null];
 
   // mark additional elements for certain types
   switch (ensureType) {
@@ -902,7 +951,7 @@ function elementSetValue(htmlElement, value) {
   if (!htmlElement) return;
   htmlElement.value = value;
   const type = htmlElement.getAttribute('ensure');
-  const ensureType = type ? htmlElement.getAttribute('ensure').split(':')[0] : null;
+  const [ensureType] = type ? dataTypeExtraction(htmlElement.getAttribute('ensure')) : [null];
 
   // set additional values for certain types
   switch (ensureType) {
@@ -944,14 +993,9 @@ function applyAutoComplete(inputElement, values) {
       offsetLeft += parent.offsetLeft;
       parent = parent.parentElement;
     }
-    if (window.skyrimPlatform) {
-      dropdown.style.top = (offsetTop + this.offsetHeight - 1) + 'px';
-      dropdown.style.left = (offsetLeft) + 'px';
-    } else {
-      dropdown.style.top = (offsetTop + this.offsetHeight - 2) + 'px';
-      dropdown.style.left = (offsetLeft + 1) + 'px';
-    }
-    dropdown.style.width = (this.offsetWidth - 2) + 'px';
+    dropdown.style.top = (offsetTop + this.offsetHeight - 1) + 'px';
+    dropdown.style.left = (offsetLeft) + 'px';
+    dropdown.style.width = (this.offsetWidth) + 'px';
 
     const searchResult = this.value != '' ? values.filter((value) => value.toLowerCase().startsWith(this.value.toLowerCase())) : values;
     dropdown.innerHTML = '';
@@ -968,7 +1012,11 @@ function applyAutoComplete(inputElement, values) {
       button.addEventListener('mousedown', ()=>{this.value = button.innerText});
       dropdown.appendChild(button);
     }
-    dropdown.removeAttribute('hidden');
+    if (searchResult.length == 0) {
+      dropdown.appendChild(elementFromHTML('<label>No matching value!</label>'))
+    }
+    dropdown.toggleAttribute('nomatch', searchResult.length == 0);
+    dropdown.toggleAttribute('hidden', dropdown.innerHTML == '');
   });
 
   inputElement.addEventListener('blur', function() {

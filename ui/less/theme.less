@@ -9,13 +9,15 @@
 @c-accent-8: rgb(211, 211, 211);
 @c-background: black;
 @c-text: rgb(235, 235, 235);
+@c-text-alt: #fff - @c-text;
+@c-text-muted: darken(@c-text, 20%);
 @c-safe: rgb(123, 255, 0);
 @c-warning: rgb(255, 196, 0);
-@c-danger: rgb(255, 51, 0);
+@c-danger: rgb(255, 113, 113);
 @v-alpha: 0.6;
 
-@colors: .colors();
-.colors() {
+@transparent: .transparent();
+.transparent() {
   c-background: rgba(
     red(@c-background),
     green(@c-background),
@@ -81,12 +83,6 @@
     blue(@c-accent-8),
     @v-alpha
   );
-  c-text: @c-text;
-  c-safe: @c-safe;
-  c-warning: @c-warning;
-  c-danger: @c-danger;
-  c-text-alt: #fff - $c-text;
-  c-text-muted: darken($c-text, 20%);
 }
 
 @sizes: .sizes();

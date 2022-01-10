@@ -25,7 +25,7 @@
           "name": "Decimal Range Setting",
           "desc": "This setting can only be a decimal in a valid range.",
           "type": "decimalrange:0.1,9.9,0.1",
-          "default": 5.2
+          "default": 5.0
         },
         "setting_4_formid": {
           "name": "FormID Setting",
@@ -63,20 +63,23 @@
           "default": 27
         },
         "setting_9_list": {
-          "name": "List of FormType Setting",
-          "desc": "This setting can only be a list of FormTypes.",
-          "type": "list:formtype",
+          "name": "List of RGBY Setting",
+          "desc": "This setting can only be a list of Red, Green, Blue, and Yellow.",
+          "type": "list:values:Red,Green,Blue,Yellow",
           "default": [
-            43
+            "Red",
+            "Green",
+            "Blue",
+            "Yellow"
           ]
         },
         "setting_10_map": {
-          "name": "Map of String to Integer Setting",
-          "desc": "This setting can only be a map of strings to integers.",
-          "type": "map:string,integer",
+          "name": "Map of FormType to IntegerRange Setting",
+          "desc": "This setting can only be a map of FormTypes to integers from 0 to 10.",
+          "type": "map:formtype,integerrange:0,10",
           "default": [
-            ["Apple", 24],
-            ["Banana", 54]
+            [42, 2],
+            [43, 3]
           ]
         },
         "setting_11_number": {
@@ -89,7 +92,7 @@
           "name": "String Setting",
           "desc": "This setting can only be a valid string.",
           "type": "string",
-          "default": "42"
+          "default": "42 can be a string"
         },
         "setting_13_values": {
           "name": "Values Setting",

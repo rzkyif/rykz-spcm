@@ -113,7 +113,6 @@ function queueSettingsScan() {
   });
 }
 
-
 function queueSettingsSave(filename: `${string}-settings.txt`, pluginSettings: PluginSettings) {
   const filepathSettings = `Data/Platform/Plugins/${filename}`;
   mappedPluginSettings[filename] = pluginSettings;
@@ -232,8 +231,8 @@ function processSettingsFile(filename: `${string}-settings.txt`): PluginSettings
     pluginSettings = {
       title: filename,
       categories: {
-        category_default: {
-          title: "Settings",
+        category_detected: {
+          title: "Detected Settings",
           settings: {},
           _edited: false
         }
@@ -256,7 +255,7 @@ function processSettingsFile(filename: `${string}-settings.txt`): PluginSettings
       };
   
       if (pluginSetting.type)
-        pluginSettings.categories['category_default'].settings[settingKey] = pluginSetting;
+        pluginSettings.categories['category_detected'].settings[settingKey] = pluginSetting;
     } 
 
     pc(`Loaded ${filename}! (Non-SPCM)`);

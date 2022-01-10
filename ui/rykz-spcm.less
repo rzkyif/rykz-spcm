@@ -8,7 +8,7 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background: @colors[c-base-ddd];
+  background: @transparent[c-base-ddd];
   font-size: @sizes[v-larger];
   z-index: 10;
 
@@ -42,7 +42,7 @@
 // lists
 .m-list {
   flex: 1;
-  border: 1px solid @colors[c-text];
+  border: 1px solid @c-text;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -54,16 +54,16 @@
   }
   
   &::-webkit-scrollbar-track {
-    background: @colors[c-base];
+    background: @transparent[c-base];
   }
   
   &::-webkit-scrollbar-thumb {
-    background: @colors[c-base-ll];
+    background: @transparent[c-base-ll];
     &:hover {
-      background: @colors[c-base-lll];
+      background: @transparent[c-base-lll];
     }
     &:active {
-      background: @colors[c-text];
+      background: @c-text;
     }
   }
 }
@@ -83,19 +83,19 @@
   padding: 0.3rem;
 
   & > button {
-    background: fadein(@colors[c-base-ddd], 25%);
-    border: 1px solid @colors[c-text];
+    background: fadein(@transparent[c-base-ddd], 25%);
+    border: 1px solid @c-text;
     padding: 0.3rem;
     white-space: nowrap;
     font-size: @sizes[v-small];
     margin-top: -1px;
 
     &:hover {
-      background: fadein(@colors[c-base-dd], 25%);
+      background: fadein(@transparent[c-base-dd], 25%);
     }
 
     &:active {
-      background: fadein(@colors[c-base-d], 25%);
+      background: fadein(@transparent[c-base-d], 25%);
     }
   }
 }
@@ -105,31 +105,42 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  border: 1px solid @colors[c-text];
-  border-top: none;
+  border: 1px solid @c-text;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 5.1rem;
+  max-height: 5.5rem;
   z-index: 100;
 
   & > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex: 1;
-    background: fadein(@colors[c-base-ll], 35%);
+    background: fadein(@transparent[c-base-ll], 35%);
     border: none;
     font-size: @sizes[v-medium];
     z-index: 100;
 
     & > span {
-      color: @colors[c-text-muted];
+      color: @c-text-muted;
     }
 
     &:hover {
-      background: fadein(@colors[c-base-lll], 35%);
+      background: fadein(@transparent[c-base-lll], 35%);
     }
 
     &:active {
-      background: fadein(@colors[c-base-llll], 35%);
+      background: fadein(@transparent[c-base-llll], 35%);
     }
+  }
+
+  & > label {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background: fadeout(@c-danger, 10%);
+    font-size: @sizes[v-medium];
+    z-index: 100;
   }
 
   &::-webkit-scrollbar {
@@ -137,16 +148,16 @@
   }
   
   &::-webkit-scrollbar-track {
-    background: fadein(@colors[c-base-ll], 35%);
+    background: fadein(@transparent[c-base-ll], 35%);
   }
   
   &::-webkit-scrollbar-thumb {
-    background: fadein(@colors[c-base-llll], 35%);
+    background: fadein(@transparent[c-base-llll], 35%);
     &:hover {
-      background: fadein(@colors[c-base-lllll], 35%);
+      background: fadein(@transparent[c-base-lllll], 35%);
     }
     &:active {
-      background: @colors[c-text];
+      background: @c-text;
     }
   }
 }
@@ -154,7 +165,7 @@
 // actual menu
 #m-background {
   position: relative;
-  background: @colors[c-background];
+  background: @transparent[c-background];
   padding: @distances[v-base-l] @distances[v-base-ll];
   overflow: hidden;
   min-width: 70%;
@@ -185,7 +196,7 @@
     right: @distances[v-base];
     bottom: @distances[v-base];
     left: @distances[v-base];
-    border: 1px solid @colors[c-text];
+    border: 1px solid @c-text;
   }
 
   // plugins container
@@ -203,18 +214,18 @@
       // toggle spcm only button
       & > button {
         font-size: @sizes[v-small];
-        border: 1px solid @colors[c-text];
+        border: 1px solid @c-text;
         border-bottom: none;
         margin-top: @distances[v-base];
-        background: fadeout(@colors[c-text-muted], 60%);
-        color: @colors[c-text];
+        background: fadeout(@c-text-muted, 60%);
+        color: @c-text;
 
         &:not([disabled]):hover {
-          background: darken(@colors[c-text-muted], 10%);
+          background: darken(@c-text-muted, 10%);
         }
 
         &:active {
-          background: darken(@colors[c-text-muted], 5%);
+          background: darken(@c-text-muted, 5%);
         }
       }
     }
@@ -243,25 +254,25 @@
           transition: border-left 0.1s;
     
           &:not([selected]):hover {
-            border-left: @distances[v-base-l] solid @colors[c-base-lll];
-            background: @colors[c-base-l];
+            border-left: @distances[v-base-l] solid @transparent[c-base-lll];
+            background: @transparent[c-base-l];
           }
     
           &[selected] {
-            border-left: @distances[v-base-l] solid @colors[c-text];
-            background: @colors[c-base-ll];
-            color: @colors[c-text]
+            border-left: @distances[v-base-l] solid @c-text;
+            background: @transparent[c-base-ll];
+            color: @c-text
           }
 
           &[raw] {
-            color: @colors[c-text-muted];
+            color: @c-text-muted;
 
             &:not([selected]):hover {
-              border-left: @distances[v-base-l] solid @colors[c-text-muted];
+              border-left: @distances[v-base-l] solid @c-text-muted;
             }
 
             &[selected] {
-              border-left: @distances[v-base-l] solid @colors[c-text-muted];
+              border-left: @distances[v-base-l] solid @c-text-muted;
             }
           }
         }
@@ -281,28 +292,28 @@
             background: none;
             border: none;
             text-align: left;
-            border-left: @distances[v-base-l] solid @colors[c-text];
+            border-left: @distances[v-base-l] solid @c-text;
             transition: border-left 0.1s;
       
             &:not([selected]):hover {
-              border-left: @distances[v-base-ll] solid @colors[c-text];
-              background: @colors[c-base-l];
+              border-left: @distances[v-base-ll] solid @c-text;
+              background: @transparent[c-base-l];
             }
       
             &[selected] {
-              border-left: @distances[v-base-ll] solid @colors[c-text];
-              background: @colors[c-base-ll];
+              border-left: @distances[v-base-ll] solid @c-text;
+              background: @transparent[c-base-ll];
             }
 
             &[raw] {
-              color: @colors[c-text-muted];
+              color: @c-text-muted;
   
               &:not([selected]):hover {
-                border-left: @distances[v-base-ll] solid @colors[c-text-muted];
+                border-left: @distances[v-base-ll] solid @c-text-muted;
               }
   
               &[selected] {
-                border-left: @distances[v-base-ll] solid @colors[c-text-muted];
+                border-left: @distances[v-base-ll] solid @c-text-muted;
               }
             }
           }
@@ -334,34 +345,34 @@
       // save / revert button
       & > button {
         font-size: @sizes[v-small];
-        border: 1px solid @colors[c-text];
+        border: 1px solid @c-text;
         border-bottom: none;
         margin-top: @distances[v-base];
         
         // save button
         &[save] {
-          background: @colors[c-accent-1];
+          background: @transparent[c-accent-1];
   
           &:not([disabled]):hover {
-            background: lighten(@colors[c-accent-1], 5%);
+            background: lighten(@transparent[c-accent-1], 5%);
           }
     
           &:active {
-            background: lighten(@colors[c-accent-1], 10%);
+            background: lighten(@transparent[c-accent-1], 10%);
           }
         }
 
         // revert button
         &[revert] {
-          background: @colors[c-accent-3];
+          background: @transparent[c-accent-3];
           border-left: none;
   
           &:not([disabled]):hover {
-            background: lighten(@colors[c-accent-3], 5%);
+            background: lighten(@transparent[c-accent-3], 5%);
           }
     
           &:active {
-            background: lighten(@colors[c-accent-3], 10%);
+            background: lighten(@transparent[c-accent-3], 10%);
           }
         }
       }
@@ -369,6 +380,7 @@
     
     // settings
     #m-settings {
+      display: flex;
       position: relative;
       padding: @distances[v-base];
       overflow-x: hidden;
@@ -402,20 +414,20 @@
         // setting layout: left and right
         &[type=single], &[type=action] {
           div[left] {
-            padding: @distances[v-base] @distances[v-base];
             display: flex;
+            padding: @distances[v-base] @distances[v-base];
             flex-direction: column;
             flex: 2;
           }
           div[right] {
+            display: flex;
             position: relative;
             padding: @distances[v-base] @distances[v-base];
-            display: flex;
             flex: 1;
             > * {
               flex: 1;
             }
-            border-left: 1px solid @colors[c-base-ll];
+            border-left: 1px solid @transparent[c-base-ll];
           }
         }
 
@@ -448,21 +460,21 @@
         
             // list entries
             input {
-              border: none;
+              border: none !important;
             }
   
             // + button
             button {
-              background: @colors[c-base-l];
+              background: @transparent[c-base-l];
               border: none;
               font-size: @sizes[v-small];
       
               &:not([disabled]):hover {
-                background: @colors[c-base-ll];
+                background: @transparent[c-base-ll];
               }
       
               &:active {
-                background: @colors[c-base-lll];
+                background: @transparent[c-base-lll];
               }
             }
           }
@@ -472,14 +484,14 @@
         & > div[right], & > div[bottom], & > div[bottom] > div {
           // normal inputs
           & > input {
-            background: @colors[c-base-d];
-            border: 1px solid @colors[c-text];
+            background: @transparent[c-base-d];
+            border: 1px solid @c-text;
             text-align: center;
             font-size: @sizes[v-medium];
             width: 100%;
 
             &[disabled] {
-              color: @colors[c-text-muted];
+              color: @c-text-muted;
             }
           }
 
@@ -489,18 +501,42 @@
           }
 
           // input style for integer ranges
-          & > input[type="range"] {
-            overflow: hidden;
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            height: 100%;
-            background: @colors[c-base-d];
-            outline: none;
-            margin: 0px;
-            border: 1px solid @colors[c-text];
+          & > div[range] {
+            display: flex;
+            flex: 1;
+            position: relative;
 
-            & + label[range] {
+            & > input {
+              overflow: hidden;
+              -webkit-appearance: none;
+              appearance: none;
+              width: 100%;
+              height: 100%;
+              background: @transparent[c-base-d];
+              outline: none;
+              margin: 0px;
+              border: 1px solid @c-text;
+
+              &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 0px;
+                height: 100%;
+                box-shadow: -20vw 0 0 20vw fadeout(@c-text, 60%);
+              }
+
+              &::-webkit-slider-runnable-track {
+                height: 100%;
+                padding: 0px;
+                margin: 0px;
+              }
+
+              &[edited]::-webkit-slider-thumb {
+                box-shadow: -20vw 0 0 20vw fadeout(@c-warning, 60%);
+              }
+            }
+            
+            & > label[range] {
               pointer-events: none;
               display: flex;
               position: absolute;
@@ -511,61 +547,51 @@
               justify-content: center;
               align-items: center;
             }
-
-            &::-webkit-slider-thumb {
-              -webkit-appearance: none;
-              appearance: none;
-              width: 1px;
-              height: 100%;
-              box-shadow: -12vw 0 0 12vw fadeout(@colors[c-text], 60%);
-            }
-
-            &::-webkit-slider-runnable-track {
-              height: 100%;
-              padding: 0px;
-              margin: 0px;
-            }
-
-            &[edited]::-webkit-slider-thumb {
-              box-shadow: -12vw 0 0 12vw fadeout(@colors[c-warning], 60%);
-            }
           }
 
           // input style for actions
           & > button {
-            background: fadein(@colors[c-base-ll], 35%);
+            background: fadein(@transparent[c-base-ll], 35%);
             border: none;
             font-size: @sizes[v-medium];
     
             &:not([disabled]):hover {
-              background: fadein(@colors[c-base-lll], 35%);
+              background: fadein(@transparent[c-base-lll], 35%);
             }
 
             &[disabled] {
-              color: @colors[c-text-muted];
+              color: @c-text-muted;
             }
     
             &:active {
-              background: fadein(@colors[c-base-llll], 35%) !important;
+              background: fadein(@transparent[c-base-llll], 35%) !important;
             }
           }
         }
 
         // light up setting background on hover
         &:hover {
-          background: @colors[c-base];
+          background: @transparent[c-base];
         }
       }
     }
   }
 
   [edited] {
-    color: @colors[c-warning] !important;
-    border-color: @colors[c-warning] !important;
+    color: @c-warning !important;
+    border-color: @c-warning !important;
 
-    &[bottom] input {
-      color: @colors[c-warning] !important;
-      border-color: @colors[c-warning] !important;
+    & input {
+      color: @c-warning !important;
+      border-color: @c-warning !important;
+
+      &::-webkit-slider-thumb {
+        box-shadow: -20vw 0 0 20vw fadeout(@c-warning, 60%) !important;
+      }
+    }
+
+    & label[range] {
+      color: @c-warning !important;
     }
   }
 }
