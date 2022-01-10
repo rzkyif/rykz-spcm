@@ -367,16 +367,19 @@ function linkStart(htmlElement) {
         case 'decimal':
           element.addEventListener('input', function() {
             let x = this.value;
+            let p = this.selectionStart;
 
-            if (!x.toString().includes('.'))
-              x = x + '.';
-            x = x.replaceAll(/[^\d\.-]|(?<=[^^])-|\.(?=[^\.]*\.[^\.]*)/g, '');
+            x = x.replaceAll(/[^\d\.-]|(?<=[^^])-|\.(?=[^\.]*\.[^\.]*)|(?<=^|-)0+(?!\.|$)/g, '');
 
             this.value = x;
+            this.selectionStart = p;
+            this.selectionEnd = p;
           });
           element.addEventListener('change', function() {
             let x = this.value;
 
+            if (!x.toString().includes('.'))
+              x = x + '.';
             if (x.startsWith('.'))
               x = '0' + x;
             if (x.startsWith('-.'))
@@ -414,7 +417,7 @@ function linkStart(htmlElement) {
           element.addEventListener('blur', function() {
             let x = this.value;
             
-            x = '0x' + x.replace(/^0*/, '');
+            x = '0x' + x.replace(/^0+/, '');
             if (x == '0x')
               x = '0x0';
 
@@ -429,13 +432,21 @@ function linkStart(htmlElement) {
             let x = this.value;
             let p = this.selectionStart;
 
-            x = x.replaceAll(/[^\d-]|(?<=[^^])-/g, '');
-            if (x == '')
-              x = '0';
+            x = x.replaceAll(/[^\d-]|(?<=[^^])-|(?<=^|-)0+(?!$)/g, '');
 
             this.value = x;
             this.selectionStart = p;
             this.selectionEnd = p;
+          });
+          element.addEventListener('change', function() {
+            let x = this.value;
+
+            if (x == '')
+              x = '0';
+            else if (x == '-')
+              x = '-0';
+
+            this.value = x;
 
             const value = convertToValue(x, ensureType);
             dataPathSet(dataPath, '_value', value);
@@ -451,7 +462,7 @@ function linkStart(htmlElement) {
           element.addEventListener('input', function() {
             let x = this.value;
 
-            x = x.replaceAll(/[^\d\.-]|(?<=[^^])-|\.(?=[^\.]*\.[^\.]*)/g, '');
+            x = x.replaceAll(/[^\d\.-]|(?<=[^^])-|\.(?=[^\.]*\.[^\.]*)|(?<=^|-)0+(?!\.|$)/g, '');
 
             this.value = x;
           });
@@ -475,6 +486,9 @@ function linkStart(htmlElement) {
           break;
         case 'formtype':
           applyAutoComplete(element, FORMTYPES);
+          element.addEventListener('focus', function() {
+            this.select();
+          });
           element.addEventListener('change', function() {
             let x = this.value;
 
@@ -489,6 +503,9 @@ function linkStart(htmlElement) {
           break;
         case 'values':
           applyAutoComplete(element, ensureVariables);
+          element.addEventListener('focus', function() {
+            this.select();
+          });
           element.addEventListener('change', function() {
             let x = this.value;
 
