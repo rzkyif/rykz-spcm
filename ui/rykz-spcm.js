@@ -944,8 +944,13 @@ function applyAutoComplete(inputElement, values) {
       offsetLeft += parent.offsetLeft;
       parent = parent.parentElement;
     }
-    dropdown.style.top = (offsetTop + this.offsetHeight - 1) + 'px';
-    dropdown.style.left = (offsetLeft) + 'px';
+    if (window.skyrimPlatform) {
+      dropdown.style.top = (offsetTop + this.offsetHeight - 1) + 'px';
+      dropdown.style.left = (offsetLeft) + 'px';
+    } else {
+      dropdown.style.top = (offsetTop + this.offsetHeight - 2) + 'px';
+      dropdown.style.left = (offsetLeft + 1) + 'px';
+    }
     dropdown.style.width = (this.offsetWidth - 2) + 'px';
 
     const searchResult = this.value != '' ? values.filter((value) => value.toLowerCase().startsWith(this.value.toLowerCase())) : values;
