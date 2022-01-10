@@ -1,7 +1,7 @@
 {
   "name": "rykz-spcm",
-  "version": "1.0.2",
-  "description": "rykz's Skyrim Platform Configuration Menu",
+  "version": "1.0.3",
+  "description": "Skyrim Platform Configuration Menu",
   "scripts": {
     "dev": "node ./scripts/pre-compile.js && tsc-watch --onSuccess \"yarn helper-dev\"",
     "dev-plugin": "node ./scripts/pre-compile.js && tsc-watch --onSuccess \"node ./scripts/post-compile.js main settings\"",
