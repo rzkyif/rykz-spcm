@@ -1010,11 +1010,14 @@ function applyAutoComplete(inputElement, values) {
       button.addEventListener('mousedown', ()=>{this.value = button.innerText});
       dropdown.appendChild(button);
     }
+    dropdown.toggleAttribute('nomatch', searchResult.length == 0);
+    dropdown.toggleAttribute('hidden', searchResult.length == 1);
     if (searchResult.length == 0) {
       dropdown.appendChild(elementFromHTML('<label>No matching value!</label>'))
+    } else if (searchResult.length == 1) {
+      this.value = searchResult[0];
+      this.blur();
     }
-    dropdown.toggleAttribute('nomatch', searchResult.length == 0);
-    dropdown.toggleAttribute('hidden', dropdown.innerHTML == '');
   });
 
   inputElement.addEventListener('blur', function() {
