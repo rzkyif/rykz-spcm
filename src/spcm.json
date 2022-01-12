@@ -23,7 +23,7 @@
       "settings": {
         "load_non_spcm": {
           "name": "Load Non-SPCM",
-          "desc": "Load settings files that doesn't have the '_spcm_title' key in them.",
+          "desc": "Load settings files that doesn't have a companion SPCM file in \"Data/Platform/SPCM\".",
           "type": "boolean",
           "default": true
         },
