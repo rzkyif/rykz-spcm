@@ -5,7 +5,7 @@
 This is a guide for plugin developers on how to make their plugin compatible with SPCM. This guide has two parts: 
 
 1. How to properly implement Skyrim Platform's settings API so that your plugin can handle hot-reloading.
-2. How to make an SPCM File to add or organize how your plugin's settings look in SPCM. 
+2. How to make an SPCM File to configure how your plugin's settings will look in the SPCM menu. 
 
 If you've already implemented Skyrim Platform's settings API properly (e.g. your settings file can be edited while the game is running), you can head straight to the [SPCM File section](#spcm-file).
 
@@ -46,7 +46,7 @@ For now, refer to these:
 
 The SPCM file is a JSON file that you can use to provide additional information about the settings in your settings file. SPCM will look for SPCM files in the `Data/Platform/SPCM` folder. If your settings file is at `Data/Platform/Plugins/X-settings.txt`, you should make your SPCM file at `Data/Platform/SPCM/X.json`. 
 
-When a companion SPCM file is not found for a settings file, SPCM will only load settings that is of type `number`, `boolean`, or `string`. The name for each setting in the SPCM menu will be each setting's key in the settings file. Type checking for user input will also be very limited, only ensuring that the input is a number.
+When a companion SPCM file is not found for a settings file, SPCM will only load settings with values of type `number`, `boolean`, or `string`. The name for each setting in the SPCM menu will be each setting's key in the settings file. Type checking for user input will also be very limited, only ensuring that the input is of the same type with the values already in the settings file.
 
 You can generate a template for a new SPCM file from an existing settings file with the [SPCM File Generator](./spcm-generator/dist/index.html).
 
@@ -83,7 +83,7 @@ Refer to the line numbers above for the following explanations.
 | 2           | An `object`.  Each key has to start with "category_", and the value should be a `Category`.                                                                                                                                                                             |
 | 3           | An example `Category`, with the key "category_hotkeys".                                                                                                                                                                                                                 |
 | 4           | A `string`.  The title of the category that will show in SPCM.                                                                                                                                                                                                          |
-| 5           | An `object`.  Each key has to also exist in the settings file as an actual setting, and the value should be a Setting.                                                                                                                                                  |
+| 5           | An `object`.  Each key has to also exist in the settings file and not start with "_", and the value should be a Setting.                                                                                                                                                |
 | 6           | An example `Setting`, with the key "key_menu".  There should also be a "key_menu" in the settings file.                                                                                                                                                                 |
 | 7           | A `string`.  The name of the setting that will show in SPCM.  Optional, default is the key.                                                                                                                                                                             |
 | 8           | A `string`.  The description of the setting that will show in SPCM.  Optional, default is no description.                                                                                                                                                               |
@@ -209,7 +209,7 @@ Example `Setting`s :
 ```
 
 ### FormID
-`FormID`s that can be used in your plugin. The actual setting value will be a number, but users will input in hex form.
+`FormID`s that can be used in your plugin. The actual setting value will be a number, but users will input in hex form. Note that there are no lower nor upper bounds for the hex values: users can input whatever they like and it will only be converted into a number.
 
 Example `Setting`s :
 ```js
@@ -259,7 +259,7 @@ Example `Setting`s :
 ```
 
 ### Key
-`DXScanCode`s that can be used in your plugin. The actual setting value will be a number, but users will input with a key binding interface.
+`DXScanCode`s that can be used in your plugin. The actual setting value will be a number, but users will input with a key binding interface. Note that in addition to normal DXScanCodes possible values, `0` is also a possible value which will be set if users decide to unbind the key.
 
 Example `Setting`s :
 ```js
@@ -271,7 +271,7 @@ Example `Setting`s :
 ```
 
 ### List
-Lists of other supported types.
+Lists of other supported types. Currently, types that can't be in lists are `list`, `map`, and `action`.
 
 Example `Setting`s :
 ```js
@@ -285,7 +285,7 @@ Example `Setting`s :
 ```
 
 ### Map
-Maps of other supported types to other supported types.
+Maps of other supported types to other supported types. Currently, types that can't be in maps are `list`, `map`, and `action`.
 
 Example `Setting`s :
 ```js
@@ -331,7 +331,7 @@ Example `Setting`s :
 ```
 
 ### Values
-Single values that exists in a list that you provide. The actual setting value will be a string, but users will input with a dropdown.
+Single values that exists in a list that you provide. The actual setting value will be a string, but users will input with an autocomplete interface.
 
 Example `Setting`s :
 ```js
