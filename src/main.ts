@@ -136,6 +136,10 @@ function queueSettingsSave(filename: `${string}-settings.txt`, pluginSettings: P
 
     WriteToFile(filepathSettings, JSON.stringify(jsonSettings, undefined, 2), false, false);
 
+    // force SP plugin reload by editing SPCM's settings
+    const filepathSPCMSettings = `Data/Platform/Plugins/${CODENAME}-settings.txt`;
+    WriteToFile(filepathSPCMSettings, ReadFromFile(filepathSPCMSettings), false, false);
+
     let pluginSettings = processSettingsFile(filename);
     if (pluginSettings)
       mappedPluginSettings[filename] = pluginSettings;
