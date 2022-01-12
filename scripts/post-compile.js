@@ -57,6 +57,7 @@ if (process.argv.includes('zip')) {
 	archive.file('./src/spcm.json', {name: '/r/Platform/SPCM/'+spcmName});
 
 	// example settings and spcm
+	archive.file('./docs/examples/example-settings.json', {name: '/e/Platform/Plugins/example-raw-settings.txt'});
 	archive.file('./docs/examples/example-settings.json', {name: '/e/Platform/Plugins/example-settings.txt'});
 	archive.file('./docs/examples/example-spcm.json', {name: '/e/Platform/SPCM/example.json'});
 
