@@ -103,12 +103,31 @@ function initialize() {
 
 function queueSettingsScan() {
   once('update', () => {
+    const tempMap: MappedPluginSettings = {};
     for (const file of FilesInFolder('data/Platform/Plugins', '.txt')) {
       if (file.endsWith('-settings.txt')) {
         let pluginSettings = processSettingsFile(file as '-settings.txt');
         if (pluginSettings)
-          mappedPluginSettings[file as '-settings.txt'] = pluginSettings;
+          tempMap[file as '-settings.txt'] = pluginSettings;
       }
+    }
+
+    // sort plugin order
+    const sortedKeyList = Object.keys(tempMap).map((fileName) => {
+      return [fileName, fileName === tempMap[fileName as '-settings.txt'].title]
+    }).sort(([fileNameA, isRawA], [fileNameB, isRawB]) => {
+      const fileNameOrder = fileNameA.toString().localeCompare(fileNameB.toString());
+      if ((!isRawA && isRawB) || (isRawA == isRawB && fileNameOrder < 0)) {
+        return -1;
+      } else if ((isRawA && !isRawB) || (isRawA == isRawB && fileNameOrder > 0)) {
+        return 1;
+      } else {
+        return 0;
+      } 
+    });
+    
+    for (const [fileName] of sortedKeyList) {
+      mappedPluginSettings[fileName as '-settings.txt'] = tempMap[fileName as '-settings.txt'];
     }
   });
 }
