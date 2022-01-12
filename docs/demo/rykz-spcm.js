@@ -6955,12 +6955,9 @@ function contextMenuOpen(event) {
   mContextMenu.style.left = event.pageX - remToPx(0.3) + 'px';
   mContextMenu.style.top = event.pageY - remToPx(0.3) + 'px';
   mContextMenu.removeAttribute('hidden');
-
-  if (dataPathGet(selectedDataPath, 'default') !== undefined) {
-    mContextMenu.children[1].removeAttribute('hidden');
-  } else {
-    mContextMenu.children[1].setAttribute('hidden', '');
-  }
+  mContextMenu.children[0].toggleAttribute('hidden', !dataPathGet(selectedDataPath, '_edited'));
+  var defaultValue = dataPathGet(selectedDataPath, 'default');
+  mContextMenu.children[1].toggleAttribute('hidden', defaultValue === undefined || simpleEqual(defaultValue, dataPathGet(selectedDataPath, '_value')));
 }
 
 function contextMenuClose() {
