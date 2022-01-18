@@ -6624,10 +6624,13 @@ function dataPathSet(dataPath, property, value) {
         switch (ensureType) {
           case 'list':
           case 'map':
-            var bottomDivElement = dataPathElement(dataPath);
+            var settingElement = dataPathElement(dataPath);
 
-            if (bottomDivElement) {
-              var settingElement = bottomDivElement.parentElement;
+            while (!settingElement.classList.contains('m-setting')) {
+              settingElement = settingElement.parentElement;
+            }
+
+            if (settingElement) {
               var newSettingElement = elementFromHTML(settingTemplate(settingDataPath, setting['name'], setting['desc'], setting['type'], setting['default'], setting['_value'], setting['_friendlyName'], setting['_edited']));
               settingElement.replaceWith(newSettingElement);
               newSettingElement.addEventListener('mouseenter', function () {
@@ -7112,12 +7115,15 @@ function applyAutoComplete(inputElement, values) {
       _iterator4.f();
     }
 
+    dropdown.toggleAttribute('nomatch', searchResult.length == 0);
+    dropdown.toggleAttribute('hidden', searchResult.length == 1);
+
     if (searchResult.length == 0) {
       dropdown.appendChild(elementFromHTML('<label>No matching value!</label>'));
+    } else if (searchResult.length == 1) {
+      this.value = searchResult[0];
+      this.blur();
     }
-
-    dropdown.toggleAttribute('nomatch', searchResult.length == 0);
-    dropdown.toggleAttribute('hidden', dropdown.innerHTML == '');
   });
   inputElement.addEventListener('blur', function () {
     dropdown.innerHTML = '';
