@@ -592,9 +592,11 @@ function dataPathSet(dataPath, property, value, setElementValue=false) {
         switch (ensureType) {
           case 'list':
           case 'map':
-            const bottomDivElement = dataPathElement(dataPath);
-            if (bottomDivElement)  {
-              const settingElement = bottomDivElement.parentElement;
+            let settingElement = dataPathElement(dataPath);
+            while (!settingElement.classList.contains('m-setting')) {
+              settingElement = settingElement.parentElement;
+            }
+            if (settingElement)  {
               const newSettingElement = elementFromHTML(settingTemplate(
                 settingDataPath, 
                 setting['name'], 
