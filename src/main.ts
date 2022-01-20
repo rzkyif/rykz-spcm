@@ -86,8 +86,10 @@ function initialize() {
   ClearHotkeys();
   RegisterHotkey(settings[CODENAME]["key_menu"] as number, onKeyMenu);
   RegisterHotkey(settings[CODENAME]["key_reset"] as number, onKeyReset);
-  RegisterHotkey(Input.getMappedKey("Pause", 0xff), onKeyExit);
-  RegisterHotkey(Input.getMappedKey("Tween Menu", 0xff), onKeyExit);
+
+  for (const key of settings[CODENAME]["keys_close"] as number[]) {
+    RegisterHotkey(key, onKeyExit);
+  }
 
   isMenu = false;
   firstTimeOpen = true;

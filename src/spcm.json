@@ -15,6 +15,12 @@
           "desc": "Key to reset the plugin.",
           "type": "key",
           "default": 207
+        },
+        "keys_close": {
+          "name": "Menu Close Keys",
+          "desc": "Keys to close the menu.",
+          "type": "list:key",
+          "default": [1,15]
         }
       }
     },
